@@ -1,0 +1,944 @@
+MGLV|NexAI Digital Infrastruktur Tb|Akselerasi|Lainnya
+TRUE|Triniti Dinamik Tbk.|Pemantauan Khusus|Lainnya
+LABA|Green Power Group Tbk.|Pengembangan|Lainnya
+ARCI|Archi Indonesia Tbk.|Pengembangan|Energi & Bahan
+IPAC|Era Graharealty Tbk.|Akselerasi|Lainnya
+MASB|Bank Multiarta Sentosa Tbk.|Utama|Lainnya
+BMHS|Bundamedik Tbk.|Utama|Lainnya
+FLMC|Falmaco Nonwoven Industri Tbk.|Pemantauan Khusus|Lainnya
+NICL|PAM Mineral Tbk.|Pengembangan|Energi & Bahan
+UVCR|Trimegah Karya Pratama Tbk.|Pengembangan|Lainnya
+BUKA|Bukalapak.com Tbk.|Ekonomi Baru|Teknologi
+HAIS|Hasnur Internasional Shipping|Pengembangan|Lainnya
+OILS|Indo Oil Perkasa Tbk.|Pengembangan|Lainnya
+GPSO|Geoprima Solusi Tbk.|Pengembangan|Lainnya
+MCOL|Prima Andalan Mandiri Tbk.|Utama|Lainnya
+RSGK|Kedoya Adyaraya Tbk.|Pengembangan|Lainnya
+RUNS|Global Sukses Solusi Tbk.|Akselerasi|Lainnya
+SBMA|Surya Biru Murni Acetylene Tbk|Pengembangan|Lainnya
+CMNT|Cemindo Gemilang Tbk.|Pengembangan|Lainnya
+GTSI|GTS Internasional Tbk.|Pengembangan|Lainnya
+IDEA|Idea Indonesia Akademi Tbk.|Akselerasi|Lainnya
+KUAS|Ace Oldfields Tbk.|Pengembangan|Lainnya
+BOBA|Formosa Ingredient Factory Tbk|Pengembangan|Lainnya
+MTEL|Dayamitra Telekomunikasi Tbk.|Utama|Infrastruktur
+DEPO|Caturkarda Depo Bangunan Tbk.|Pengembangan|Lainnya
+BINO|Perma Plasindo Tbk.|Pengembangan|Lainnya
+CMRY|Cisarua Mountain Dairy Tbk.|Utama|Konsumer
+WGSH|Wira Global Solusi Tbk.|Akselerasi|Lainnya
+TAYS|Jaya Swarasa Agung Tbk.|Pengembangan|Lainnya
+WMPP|Widodo Makmur Perkasa Tbk.|Utama|Lainnya
+RMKE|RMK Energy Tbk.|Utama|Lainnya
+OBMD|OBM Drilchem Tbk.|Pengembangan|Lainnya
+AVIA|Avia Avian Tbk.|Utama|Energi & Bahan
+IPPE|Indo Pureco Pratama Tbk.|Pengembangan|Lainnya
+NASI|Wahana Inti Makmur Tbk.|Pengembangan|Lainnya
+BSML|Bintang Samudera Mandiri Lines|Pengembangan|Lainnya
+DRMA|Dharma Polimetal Tbk.|Utama|Lainnya
+ADMR|Alamtri Minerals Indonesia Tbk|Utama|Energi & Bahan
+SEMA|Semacom Integrated Tbk.|Pengembangan|Lainnya
+ASLC|Autopedia Sukses Lestari Tbk.|Pengembangan|Lainnya
+NETV|MDTV Media Technologies Tbk.|Pengembangan|Lainnya
+BAUT|Mitra Angkasa Sejahtera Tbk.|Pengembangan|Lainnya
+ENAK|Champ Resto Indonesia Tbk.|Pengembangan|Lainnya
+NTBK|Nusatama Berkah Tbk.|Pengembangan|Lainnya
+SMKM|Sumber Mas Konstruksi Tbk.|Akselerasi|Lainnya
+STAA|Sumber Tani Agung Resources Tb|Utama|Lainnya
+NANO|Nanotech Indonesia Global Tbk.|Akselerasi|Lainnya
+BIKE|Bhineka Inovasi Ketahanan Ener|Pengembangan|Lainnya
+WIRG|WIR ASIA Tbk.|Pengembangan|Lainnya
+SICO|Sigma Energy Compressindo Tbk.|Pengembangan|Lainnya
+GOTO|GoTo Gojek Tokopedia Tbk.|Pengembangan|Teknologi
+TLDN|Teladan Prima Agro Tbk.|Utama|Lainnya
+MTMH|Murni Sadar Tbk.|Utama|Lainnya
+WINR|Winner Nusantara Jaya Tbk.|Utama|Lainnya
+IBOS|Indo Boga Sukses Tbk.|Akselerasi|Lainnya
+OLIV|Atlas Nexus Group Tbk.|Akselerasi|Lainnya
+ASHA|Cilacap Samudera Fishing Indus|Pengembangan|Lainnya
+SWID|Saraswanti Indoland Developmen|Pengembangan|Lainnya
+TRGU|Cerestar Indonesia Tbk.|Utama|Lainnya
+ARKO|Arkora Hydro Tbk.|Pengembangan|Lainnya
+CHEM|Chemstar Indonesia Tbk.|Pengembangan|Lainnya
+DEWI|Dewi Shri Farmindo Tbk.|Pengembangan|Lainnya
+AXIO|Tera Data Indonusa Tbk.|Pengembangan|Lainnya
+KRYA|Bangun Karya Perkasa Jaya Tbk.|Pengembangan|Lainnya
+HATM|Habco Trans Maritima Tbk.|Utama|Lainnya
+RCCC|Utama Radar Cahaya Tbk.|Akselerasi|Lainnya
+GULA|Aman Agrindo Tbk.|Pengembangan|Lainnya
+JARR|Jhonlin Agro Raya Tbk.|Utama|Lainnya
+AMMS|Agung Menjangan Mas Tbk.|Akselerasi|Lainnya
+RAFI|Sari Kreasi Boga Tbk.|Pengembangan|Lainnya
+KKES|Kusuma Kemindo Sentosa Tbk.|Pengembangan|Lainnya
+ELPI|Pelayaran Nasional Ekalya Purn|Utama|Lainnya
+EURO|Estee Gold Feet Tbk.|Akselerasi|Lainnya
+KLIN|Klinko Karya Imaji Tbk.|Akselerasi|Lainnya
+TOOL|Rohartindo Nusantara Luas Tbk.|Pengembangan|Lainnya
+BUAH|Segar Kumala Indonesia Tbk.|Pengembangan|Lainnya
+CRAB|Toba Surimi Industries Tbk.|Pengembangan|Lainnya
+MEDS|Hetzer Medical Indonesia Tbk.|Pengembangan|Lainnya
+COAL|Black Diamond Resources Tbk.|Pemantauan Khusus|Lainnya
+PRAY|Famon Awal Bros Sedaya Tbk.|Utama|Lainnya
+CBUT|Citra Borneo Utama Tbk.|Utama|Lainnya
+BELI|Global Digital Niaga Tbk.|Pengembangan|Lainnya
+MKTR|Menthobi Karyatama Raya Tbk.|Utama|Lainnya
+OMED|Jayamas Medica Industri Tbk.|Utama|Lainnya
+BSBK|Wulandari Bangun Laksana Tbk.|Pengembangan|Lainnya
+PDPP|Primadaya Plastisindo Tbk.|Pengembangan|Lainnya
+KDTN|Puri Sentul Permai Tbk.|Pengembangan|Lainnya
+ZATA|Bersama Zatta Jaya Tbk.|Pengembangan|Lainnya
+NINE|Techno9 Indonesia Tbk.|Akselerasi|Lainnya
+MMIX|Multi Medika Internasional Tbk|Pengembangan|Lainnya
+PADA|Personel Alih Daya Tbk.|Pengembangan|Lainnya
+ISAP|Isra Presisi Indonesia Tbk.|Akselerasi|Lainnya
+VTNY|Venteny Fortuna International|Pengembangan|Lainnya
+SOUL|Mitra Tirta Buwana Tbk.|Akselerasi|Lainnya
+ELIT|Data Sinergitama Jaya Tbk.|Pengembangan|Lainnya
+BEER|Jobubu Jarum Minahasa Tbk.|Pengembangan|Lainnya
+CBPE|Citra Buana Prasida Tbk.|Pengembangan|Lainnya
+SUNI|Sunindo Pratama Tbk.|Utama|Lainnya
+CBRE|Cakra Buana Resources Energi T|Pemantauan Khusus|Lainnya
+WINE|Hatten Bali Tbk.|Pengembangan|Lainnya
+BMBL|Lavender Bina Cendikia Tbk.|Akselerasi|Lainnya
+PEVE|Penta Valent Tbk.|Pengembangan|Lainnya
+LAJU|Jasa Berdikari Logistics Tbk.|Pengembangan|Lainnya
+FWCT|Wijaya Cahaya Timber Tbk.|Pengembangan|Lainnya
+NAYZ|Hassana Boga Sejahtera Tbk.|Akselerasi|Lainnya
+IRSX|Folago Global Nusantara Tbk.|Pengembangan|Lainnya
+PACK|Abadi Nusantara Hijau Investam|Akselerasi|Lainnya
+VAST|Vastland Indonesia Tbk.|Pengembangan|Lainnya
+CHIP|Pelita Teknologi Global Tbk.|Akselerasi|Lainnya
+HALO|Haloni Jane Tbk.|Pengembangan|Lainnya
+KING|Hoffmen Cleanindo Tbk.|Akselerasi|Lainnya
+PGEO|Pertamina Geothermal Energy Tb|Utama|Energi & Bahan
+FUTR|Futura Energi Global Tbk.|Pengembangan|Lainnya
+HILL|Hillcon Tbk.|Pemantauan Khusus|Lainnya
+BDKR|Berdikari Pondasi Perkasa Tbk.|Utama|Lainnya
+PTMP|Mitra Pack Tbk.|Pengembangan|Lainnya
+SAGE|Saptausaha Gemilangindah Tbk.|Pengembangan|Lainnya
+TRON|Teknologi Karya Digital Nusa T|Pengembangan|Lainnya
+CUAN|Petrindo Jaya Kreasi Tbk.|Utama|Energi & Bahan
+NSSS|Nusantara Sawit Sejahtera Tbk.|Pengembangan|Lainnya
+GTRA|Grahaprima Suksesmandiri Tbk.|Pengembangan|Lainnya
+HAJJ|Arsy Buana Travelindo Tbk.|Akselerasi|Lainnya
+PIPA|Oxala Energy International Tbk|Pengembangan|Lainnya
+NCKL|Trimegah Bangun Persada Tbk.|Pengembangan|Energi & Bahan
+MENN|Menn Teknologi Indonesia Tbk.|Pemantauan Khusus|Lainnya
+AWAN|Era Digital Media Tbk.|Pengembangan|Lainnya
+MBMA|Merdeka Battery Materials Tbk.|Utama|Energi & Bahan
+RAAM|Tripar Multivision Plus Tbk.|Utama|Lainnya
+DOOH|Era Media Sejahtera Tbk.|Pengembangan|Lainnya
+JATI|Informasi Teknologi Indonesia|Pengembangan|Lainnya
+TYRE|King Tire Indonesia Tbk.|Pengembangan|Lainnya
+MPXL|MPX Logistics International Tb|Pengembangan|Lainnya
+SMIL|Sarana Mitra Luas Tbk.|Utama|Lainnya
+KLAS|Pelayaran Kurnia Lautan Semest|Pengembangan|Lainnya
+MAXI|Maxindo Karya Anugerah Tbk.|Pengembangan|Lainnya
+VKTR|VKTR Teknologi Mobilitas Tbk.|Pengembangan|Lainnya
+RELF|Graha Mitra Asia Tbk.|Akselerasi|Lainnya
+AMMN|Amman Mineral Internasional Tb|Utama|Energi & Bahan
+CRSN|Carsurin Tbk.|Pengembangan|Lainnya
+GRPM|Graha Prima Mentari Tbk.|Akselerasi|Lainnya
+WIDI|Widiant Jaya Krenindo Tbk.|Akselerasi|Lainnya
+TGUK|Platinum Wahab Nusantara Tbk.|Pengembangan|Lainnya
+INET|Sinergi Inti Andalan Prima Tbk|Pengembangan|Lainnya
+MAHA|Mandiri Herindo Adiperkasa Tbk|Utama|Lainnya
+RMKO|Royaltama Mulia Kontraktorindo|Pengembangan|Lainnya
+CNMA|Nusantara Sejahtera Raya Tbk.|Pengembangan|Lainnya
+FOLK|Multi Garam Utama Tbk.|Pengembangan|Lainnya
+HBAT|Minahasa Membangun Hebat Tbk.|Akselerasi|Lainnya
+GRIA|Ingria Pratama Capitalindo Tbk|Pengembangan|Lainnya
+PPRI|Paperocks Indonesia Tbk.|Pengembangan|Lainnya
+ERAL|Sinar Eka Selaras Tbk.|Utama|Lainnya
+CYBR|ITSEC Asia Tbk.|Pengembangan|Lainnya
+MUTU|Mutuagung Lestari Tbk.|Pengembangan|Lainnya
+LMAX|Lupromax Pelumas Indonesia Tbk|Akselerasi|Lainnya
+HUMI|Humpuss Maritim Internasional|Pengembangan|Lainnya
+MSIE|Multisarana Intan Eduka Tbk.|Akselerasi|Lainnya
+RSCH|Charlie Hospital Semarang Tbk.|Pengembangan|Lainnya
+BABY|Multitrend Indo Tbk.|Pengembangan|Lainnya
+AEGS|Anugerah Spareparts Sejahtera|Akselerasi|Lainnya
+IOTF|Sumber Sinergi Makmur Tbk.|Pengembangan|Lainnya
+KOCI|Kokoh Exa Nusantara Tbk.|Pengembangan|Lainnya
+PTPS|Pulau Subur Tbk.|Pengembangan|Lainnya
+BREN|Barito Renewables Energy Tbk.|Utama|Energi & Bahan
+STRK|Lovina Beach Brewery Tbk.|Pengembangan|Lainnya
+KOKA|Koka Indonesia Tbk.|Pengembangan|Lainnya
+LOPI|Logisticsplus International Tb|Akselerasi|Lainnya
+UDNG|Agro Bahari Nusantara Tbk.|Akselerasi|Lainnya
+RGAS|Kian Santang Muliatama Tbk.|Pengembangan|Lainnya
+MSTI|Mastersystem Infotama Tbk.|Utama|Lainnya
+IKPM|Ikapharmindo Putramas Tbk.|Pengembangan|Lainnya
+AYAM|Janu Putra Sejahtera Tbk.|Pengembangan|Lainnya
+SURI|Maja Agung Latexindo Tbk.|Pengembangan|Lainnya
+ASLI|Asri Karya Lestari Tbk.|Pengembangan|Lainnya
+CGAS|Citra Nusantara Gemilang Tbk.|Pengembangan|Lainnya
+NICE|Adhi Kartiko Pratama Tbk.|Pengembangan|Lainnya
+MSJA|Multi Spunindo Jaya Tbk.|Pengembangan|Lainnya
+SMLE|Sinergi Multi Lestarindo Tbk.|Pengembangan|Lainnya
+ACRO|Samcro Hyosung Adilestari Tbk.|Pengembangan|Lainnya
+MANG|Manggung Polahraya Tbk.|Akselerasi|Lainnya
+GRPH|Griptha Putra Persada Tbk.|Pengembangan|Lainnya
+SMGA|Sumber Mineral Global Abadi Tb|Pengembangan|Lainnya
+UNTD|Terang Dunia Internusa Tbk.|Pengembangan|Lainnya
+TOSK|Topindo Solusi Komunika Tbk.|Pengembangan|Lainnya
+MPIX|Mitra Pedagang Indonesia Tbk.|Pengembangan|Lainnya
+ALII|Ancara Logistics Indonesia Tbk|Utama|Lainnya
+MKAP|Multikarya Asia Pasifik Raya T|Pengembangan|Lainnya
+MEJA|Harta Djaya Karya Tbk.|Akselerasi|Lainnya
+LIVE|Homeco Victoria Makmur Tbk.|Pengembangan|Lainnya
+HYGN|Ecocare Indo Pasifik Tbk.|Pengembangan|Lainnya
+BAIK|Bersama Mencapai Puncak Tbk.|Pengembangan|Lainnya
+VISI|Satu Visi Putra Tbk.|Pengembangan|Lainnya
+AREA|Dunia Virtual Online Tbk.|Pengembangan|Lainnya
+MHKI|Multi Hanna Kreasindo Tbk.|Pengembangan|Lainnya
+ATLA|Atlantis Subsea Indonesia Tbk.|Pengembangan|Lainnya
+DATA|Remala Abadi Tbk.|Pengembangan|Lainnya
+SOLA|Xolare RCR Energy Tbk.|Pengembangan|Lainnya
+BATR|Benteng Api Technic Tbk.|Pengembangan|Lainnya
+SPRE|Soraya Berjaya Indonesia Tbk.|Akselerasi|Lainnya
+PART|Cipta Perdana Lancar Tbk.|Pengembangan|Lainnya
+GOLF|Intra Golflink Resorts Tbk.|Utama|Lainnya
+ISEA|Indo American Seafoods Tbk.|Pengembangan|Lainnya
+BLES|Superior Prima Sukses Tbk.|Pengembangan|Lainnya
+GUNA|Gunanusa Eramandiri Tbk.|Pengembangan|Lainnya
+LABS|UBC Medical Indonesia Tbk.|Pengembangan|Lainnya
+DOSS|Global Sukses Digital Tbk.|Pengembangan|Lainnya
+NEST|Esta Indonesia Tbk.|Pengembangan|Lainnya
+PTMR|Master Print Tbk.|Pengembangan|Lainnya
+VERN|Verona Indah Pictures Tbk.|Pengembangan|Lainnya
+DAAZ|Daaz Bara Lestari Tbk.|Utama|Lainnya
+BOAT|Newport Marine Services Tbk.|Pengembangan|Lainnya
+NAIK|Adiwarna Anugerah Abadi Tbk.|Pengembangan|Lainnya
+AADI|Adaro Andalan Indonesia Tbk.|Utama|Lainnya
+CBDK|Bangun Kosambi Sukses Tbk.|Utama|Lainnya
+OBAT|Brigit Biofarmaka Teknologi Tb|Pengembangan|Lainnya
+MINE|Sinar Terang Mandiri Tbk.|Pengembangan|Lainnya
+KAQI|Jantra Grupo Indonesia Tbk.|Pengembangan|Lainnya
+YUPI|Yupi Indo Jelly Gum Tbk.|Utama|Lainnya
+FORE|Fore Kopi Indonesia Tbk.|Pengembangan|Lainnya
+MDLA|Medela Potentia Tbk.|Utama|Lainnya
+DKHH|Cipta Sarana Medika Tbk.|Pengembangan|Lainnya
+ASPR|Asia Pramulia Tbk.|Pengembangan|Lainnya
+PSAT|Pancaran Samudera Transport Tb|Pengembangan|Lainnya
+COIN|Indokripto Koin Semesta Tbk.|Pengembangan|Lainnya
+CDIA|Chandra Daya Investasi Tbk.|Pengembangan|Lainnya
+BLOG|Trimitra Trans Persada Tbk.|Utama|Lainnya
+MERI|Merry Riana Edukasi Tbk.|Pengembangan|Lainnya
+CHEK|Diastika Biotekindo Tbk.|Pengembangan|Lainnya
+PMUI|Prima Multi Usaha Indonesia Tb|Pengembangan|Lainnya
+EMAS|Merdeka Gold Resources Tbk.|Pengembangan|Lainnya
+PJHB|Pelayaran Jaya Hidup Baru Tbk.|Pengembangan|Lainnya
+RLCO|Abadi Lestari Indonesia Tbk.|Pengembangan|Lainnya
+SUPA|Super Bank Indonesia Tbk.|Pengembangan|Lainnya
+WBSA|BSA Logistics Indonesia Tbk.|Pengembangan|Lainnya
+JECX|Nitrasanata Dharma Tbk.|Utama|Lainnya
+JELI|Niramas Utama Tbk.|Pengembangan|Lainnya
+EMMI|Esa Medika Mandiri Tbk.|Pengembangan|Lainnya
+BACH|Bach Multi Global Tbk.|Utama|Lainnya
+PRDL|Prodia Diagnostic Line Tbk.|Pengembangan|Lainnya
+RANS|Rans Entertainmen Indonesia Tb|Pengembangan|Lainnya
+AALI|Astra Agro Lestari Tbk.|Utama|Konsumer
+ABBA|Mahaka Media Tbk.|Pemantauan Khusus|Lainnya
+ABDA|Asuransi Bina Dana Arta Tbk.|Pengembangan|Lainnya
+ABMM|ABM Investama Tbk.|Utama|Lainnya
+ACES|Aspirasi Hidup Indonesia Tbk.|Utama|Konsumer
+ACST|Acset Indonusa Tbk.|Pemantauan Khusus|Lainnya
+ADES|Akasha Wira International Tbk.|Utama|Lainnya
+ADHI|Adhi Karya (Persero) Tbk.|Utama|Infrastruktur
+ADMF|Adira Dinamika Multi Finance T|Pengembangan|Lainnya
+ADMG|Polychem Indonesia Tbk|Pengembangan|Lainnya
+ADRO|Alamtri Resources Indonesia Tb|Utama|Energi & Bahan
+AGII|Samator Indo Gas Tbk.|Pengembangan|Lainnya
+AGRO|Bank Raya Indonesia Tbk.|Utama|Keuangan
+AGRS|Bank IBK Indonesia Tbk.|Pengembangan|Lainnya
+AHAP|Asuransi Harta Aman Pratama Tb|Pengembangan|Lainnya
+CASH|Cashlez Worldwide Indonesia Tb|Akselerasi|Lainnya
+TECH|Indosterling Technomedia Tbk.|Pengembangan|Lainnya
+BSSR|Baramulti Suksessarana Tbk.|Utama|Energi & Bahan
+BSWD|Bank Of India Indonesia Tbk.|Pengembangan|Lainnya
+BTEK|Bumi Teknokultura Unggul Tbk|Pengembangan|Lainnya
+BTEL|Bakrie Telecom Tbk.|Pemantauan Khusus|Lainnya
+BTON|Betonjaya Manunggal Tbk.|Pengembangan|Lainnya
+BTPN|Bank SMBC Indonesia Tbk.|Utama|Lainnya
+BUDI|Budi Starch & Sweetener Tbk.|Utama|Lainnya
+MDIY|Daya Intiguna Yasa Tbk.|Utama|Lainnya
+KSIX|Kentanix Supra International T|Pengembangan|Lainnya
+RATU|Raharja Energi Cepu Tbk.|Pengembangan|Lainnya
+YOII|Asuransi Digital Bersama Tbk.|Pengembangan|Lainnya
+HGII|Hero Global Investment Tbk.|Pengembangan|Lainnya
+BRRC|Raja Roti Cemerlang Tbk.|Pemantauan Khusus|Lainnya
+DGWG|Delta Giri Wacana Tbk.|Utama|Lainnya
+LMPI|Langgeng Makmur Industri Tbk.|Pengembangan|Lainnya
+LMSH|Lionmesh Prima Tbk.|Pengembangan|Lainnya
+LPCK|Lippo Cikarang Tbk|Utama|Lainnya
+LPGI|Lippo General Insurance Tbk.|Pengembangan|Lainnya
+LPIN|Multi Prima Sejahtera Tbk|Pengembangan|Lainnya
+LPKR|Lippo Karawaci Tbk.|Utama|Properti
+LPLI|Star Pacific Tbk|Pengembangan|Lainnya
+LPPF|MDS Retailing Tbk.|Utama|Lainnya
+AIMS|Artha Mahiya Investama Tbk.|Pengembangan|Lainnya
+AISA|FKS Food Sejahtera Tbk.|Utama|Lainnya
+AKKU|Anugerah Kagum Karya Utama Tbk|Pengembangan|Lainnya
+AKPI|Argha Karya Prima Industry Tbk|Pengembangan|Lainnya
+AKRA|AKR Corporindo Tbk.|Utama|Energi & Bahan
+AKSI|Mineral Sumberdaya Mandiri Tbk|Pengembangan|Lainnya
+ALDO|Alkindo Naratama Tbk.|Utama|Lainnya
+ALKA|Alakasa Industrindo Tbk|Pengembangan|Lainnya
+ALMI|Alumindo Light Metal Industry|Pengembangan|Lainnya
+ALTO|Tri Banyan Tirta Tbk.|Utama|Lainnya
+AMAG|Asuransi Multi Artha Guna Tbk.|Utama|Lainnya
+AMFG|Asahimas Flat Glass Tbk.|Pengembangan|Lainnya
+AMIN|Ateliers Mecaniques D Indonesi|Pengembangan|Lainnya
+AMRT|Sumber Alfaria Trijaya Tbk.|Utama|Konsumer
+ANJT|Austindo Nusantara Jaya Tbk.|Pengembangan|Lainnya
+ANTM|ANTAM (Persero) Tbk.|Utama|Energi & Bahan
+APEX|Apexindo Pratama Duta Tbk.|Pengembangan|Lainnya
+APIC|Pacific Strategic Financial Tb|Pengembangan|Lainnya
+APII|Arita Prima Indonesia Tbk.|Pengembangan|Lainnya
+APLI|Asiaplast Industries Tbk.|Pengembangan|Lainnya
+APLN|Agung Podomoro Land Tbk.|Utama|Lainnya
+ARGO|Argo Pantes Tbk|Pengembangan|Lainnya
+ARII|Atlas Resources Tbk.|Pengembangan|Lainnya
+ARNA|Arwana Citramulia Tbk.|Utama|Lainnya
+ARTA|Arthavest Tbk|Pengembangan|Lainnya
+ARTI|Ratu Prabu Energi Tbk|Pemantauan Khusus|Lainnya
+ARTO|Bank Jago Tbk.|Utama|Keuangan
+ASBI|Asuransi Bintang Tbk.|Pengembangan|Lainnya
+ASDM|Asuransi Dayin Mitra Tbk.|Pengembangan|Lainnya
+ASGR|Astra Graphia Tbk.|Utama|Lainnya
+ASII|Astra International Tbk.|Utama|Konsumer
+ASJT|Asuransi Jasa Tania Tbk.|Pengembangan|Lainnya
+ASMI|Asuransi Maximus Graha Persada|Utama|Lainnya
+ASRI|Alam Sutera Realty Tbk.|Utama|Properti
+ASRM|Asuransi Ramayana Tbk.|Pengembangan|Lainnya
+ASSA|Adi Sarana Armada Tbk.|Utama|Infrastruktur
+ATIC|Anabatic Technologies Tbk.|Pengembangan|Lainnya
+AUTO|Astra Otoparts Tbk.|Utama|Konsumer
+BABP|Bank MNC Internasional Tbk.|Pengembangan|Lainnya
+BACA|Bank Capital Indonesia Tbk.|Utama|Lainnya
+BAJA|Saranacentral Bajatama Tbk.|Pengembangan|Lainnya
+BALI|Bali Towerindo Sentra Tbk.|Utama|Lainnya
+BAPA|Bekasi Asri Pemula Tbk.|Pengembangan|Lainnya
+BATA|Sepatu Bata Tbk.|Pemantauan Khusus|Lainnya
+BAYU|Bayu Buana Tbk|Utama|Lainnya
+BBCA|Bank Central Asia Tbk.|Utama|Keuangan
+BBHI|Allo Bank Indonesia Tbk.|Utama|Lainnya
+BBKP|Bank KB Indonesia Tbk.|Pengembangan|Lainnya
+BBLD|Buana Finance Tbk.|Pengembangan|Lainnya
+BBMD|Bank Mestika Dharma Tbk.|Utama|Lainnya
+BBNI|Bank Negara Indonesia (Persero|Utama|Keuangan
+BBRI|Bank Rakyat Indonesia (Persero|Utama|Keuangan
+BBRM|Pelayaran Nasional Bina Buana|Pengembangan|Lainnya
+BBTN|Bank Tabungan Negara (Persero)|Utama|Keuangan
+BBYB|Bank Neo Commerce Tbk.|Utama|Keuangan
+BCAP|MNC Kapital Indonesia Tbk.|Utama|Lainnya
+BCIC|Bank JTrust Indonesia Tbk.|Pengembangan|Lainnya
+BCIP|Bumi Citra Permai Tbk.|Pengembangan|Lainnya
+BDMN|Bank Danamon Indonesia Tbk.|Utama|Keuangan
+BEKS|Bank Pembangunan Daerah Banten|Pengembangan|Lainnya
+BEST|Bekasi Fajar Industrial Estate|Utama|Properti
+BFIN|BFI Finance  Indonesia Tbk.|Utama|Lainnya
+BGTG|Bank Ganesha Tbk.|Utama|Lainnya
+BHIT|MNC Asia Holding Tbk.|Utama|Lainnya
+BIKA|Binakarya Jaya Abadi Tbk.|Pemantauan Khusus|Lainnya
+BIMA|Primarindo Asia Infrastructure|Pemantauan Khusus|Lainnya
+BINA|Bank Ina Perdana Tbk.|Utama|Lainnya
+BIPI|Astrindo Nusantara Infrastrukt|Pengembangan|Lainnya
+BIPP|Bhuwanatala Indah Permai Tbk.|Pengembangan|Lainnya
+BIRD|Blue Bird Tbk.|Utama|Infrastruktur
+BISI|BISI International Tbk.|Utama|Lainnya
+BJBR|Bank Pembangunan Daerah Jawa B|Utama|Keuangan
+BJTM|Bank Pembangunan Daerah Jawa T|Utama|Keuangan
+BKDP|Bukit Darmo Property Tbk|Pengembangan|Lainnya
+BKSL|Sentul City Tbk.|Utama|Properti
+BKSW|Bank QNB Indonesia Tbk.|Pengembangan|Lainnya
+BLTA|Berlian Laju Tanker Tbk|Utama|Lainnya
+BLTZ|Graha Layar Prima Tbk.|Pengembangan|Lainnya
+BMAS|Bank Kasikorn Indonesia Tbk.|Pengembangan|Lainnya
+BMRI|Bank Mandiri (Persero) Tbk.|Utama|Keuangan
+BMSR|Bintang Mitra Semestaraya Tbk|Pengembangan|Lainnya
+BMTR|Global Mediacom Tbk.|Utama|Lainnya
+BNBA|Bank Bumi Arta Tbk.|Pengembangan|Lainnya
+BNBR|Bakrie & Brothers Tbk|Pengembangan|Lainnya
+BNGA|Bank CIMB Niaga Tbk.|Utama|Keuangan
+BNII|Bank Maybank Indonesia Tbk.|Utama|Lainnya
+BNLI|Bank Permata Tbk.|Utama|Keuangan
+BOLT|Garuda Metalindo Tbk.|Pengembangan|Lainnya
+BPFI|Woori Finance Indonesia Tbk.|Pengembangan|Lainnya
+BPII|Batavia Prosperindo Internasio|Pengembangan|Lainnya
+BRAM|Indo Kordsa Tbk.|Pengembangan|Lainnya
+BRMS|Bumi Resources Minerals Tbk.|Utama|Energi & Bahan
+BRNA|Berlina Tbk.|Pengembangan|Lainnya
+BRPT|Barito Pacific Tbk.|Utama|Energi & Bahan
+BSDE|Bumi Serpong Damai Tbk.|Utama|Properti
+BSIM|Bank Sinarmas Tbk.|Utama|Lainnya
+BUKK|Bukaka Teknik Utama Tbk.|Pengembangan|Lainnya
+BULL|Buana Lintas Lautan Tbk.|Pengembangan|Lainnya
+BUMI|Bumi Resources Tbk.|Utama|Energi & Bahan
+BUVA|Bukit Uluwatu Villa Tbk.|Pengembangan|Lainnya
+BVIC|Bank Victoria International Tb|Utama|Lainnya
+BWPT|Eagle High Plantations Tbk.|Utama|Lainnya
+BYAN|Bayan Resources Tbk.|Utama|Energi & Bahan
+CANI|Capitol Nusantara Indonesia Tb|Pemantauan Khusus|Lainnya
+CASS|Cahaya Aero Services Tbk.|Utama|Lainnya
+CEKA|Wilmar Cahaya Indonesia Tbk.|Pengembangan|Lainnya
+CENT|Centratama Telekomunikasi Indo|Pengembangan|Lainnya
+CFIN|Clipan Finance Indonesia Tbk.|Utama|Lainnya
+CINT|Chitose Internasional Tbk.|Pengembangan|Lainnya
+CITA|Cita Mineral Investindo Tbk.|Utama|Lainnya
+CLPI|Colorpak Indonesia Tbk.|Pengembangan|Lainnya
+CMNP|Citra Marga Nusaphala Persada|Utama|Infrastruktur
+CMPP|AirAsia Indonesia Tbk.|Pemantauan Khusus|Lainnya
+CNKO|Exploitasi Energi Indonesia Tb|Pemantauan Khusus|Lainnya
+CPIN|Charoen Pokphand Indonesia Tbk|Utama|Konsumer
+CPRO|Central Proteina Prima Tbk.|Pengembangan|Lainnya
+CSAP|Catur Sentosa Adiprana Tbk.|Pengembangan|Lainnya
+CTBN|Citra Tubindo Tbk.|Pengembangan|Lainnya
+CTRA|Ciputra Development Tbk.|Utama|Properti
+CTTH|Citatah Tbk.|Pengembangan|Lainnya
+DART|Duta Anggada Realty Tbk.|Pengembangan|Lainnya
+DEFI|Danasupra Erapacific Tbk.|Pengembangan|Lainnya
+DEWA|Darma Henwa Tbk|Utama|Properti
+DGIK|Nusa Konstruksi Enjiniring Tbk|Pengembangan|Lainnya
+DILD|Intiland Development Tbk.|Utama|Lainnya
+DKFT|Central Omega Resources Tbk.|Utama|Lainnya
+DLTA|Delta Djakarta Tbk.|Utama|Lainnya
+DMAS|Puradelta Lestari Tbk.|Utama|Properti
+DNAR|Bank Oke Indonesia Tbk.|Pengembangan|Lainnya
+DNET|Indoritel Makmur Internasional|Utama|Lainnya
+DOID|BUMA Internasional Grup Tbk.|Pengembangan|Energi & Bahan
+DPNS|Duta Pertiwi Nusantara Tbk.|Pengembangan|Lainnya
+DSFI|Dharma Samudera Fishing Indust|Pengembangan|Lainnya
+DSNG|Dharma Satya Nusantara Tbk.|Utama|Konsumer
+DSSA|Dian Swastatika Sentosa Tbk|Utama|Lainnya
+DUTI|Duta Pertiwi Tbk|Pengembangan|Lainnya
+DVLA|Darya-Varia Laboratoria Tbk.|Pengembangan|Lainnya
+DYAN|Dyandra Media International Tb|Pengembangan|Lainnya
+ECII|Electronic City Indonesia Tbk.|Pengembangan|Lainnya
+EKAD|Ekadharma International Tbk.|Pengembangan|Lainnya
+ELSA|Elnusa Tbk.|Utama|Energi & Bahan
+ELTY|Bakrieland Development Tbk.|Pengembangan|Lainnya
+EMDE|Megapolitan Developments Tbk.|Pengembangan|Lainnya
+EMTK|Elang Mahkota Teknologi Tbk.|Utama|Teknologi
+ENRG|Energi Mega Persada Tbk.|Utama|Energi & Bahan
+EPMT|Enseval Putera Megatrading Tbk|Utama|Lainnya
+ERAA|Erajaya Swasembada Tbk.|Utama|Konsumer
+ERTX|Eratex Djaja Tbk.|Pengembangan|Lainnya
+ESSA|ESSA Industries Indonesia Tbk.|Utama|Energi & Bahan
+ESTI|Ever Shine Tex Tbk.|Pengembangan|Lainnya
+ETWA|Eterindo Wahanatama Tbk|Pemantauan Khusus|Lainnya
+EXCL|XLSMART Telecom Sejahtera Tbk.|Utama|Infrastruktur
+FAST|Fast Food Indonesia Tbk.|Pengembangan|Lainnya
+FASW|Fajar Surya Wisesa Tbk.|Utama|Lainnya
+FISH|FKS Multi Agro Tbk.|Utama|Lainnya
+FMII|Fortune Mate Indonesia Tbk|Pengembangan|Lainnya
+FORU|Fortune Indonesia Tbk|Pengembangan|Lainnya
+FPNI|Lotte Chemical Titan Tbk.|Pengembangan|Lainnya
+GAMA|Aksara Global Development Tbk.|Utama|Lainnya
+GDST|Gunawan Dianjaya Steel Tbk.|Pengembangan|Lainnya
+GDYR|Goodyear Indonesia Tbk.|Pengembangan|Lainnya
+GEMA|Gema Grahasarana Tbk.|Pengembangan|Lainnya
+GEMS|Golden Energy Mines Tbk.|Utama|Energi & Bahan
+GGRM|Gudang Garam Tbk.|Utama|Konsumer
+GIAA|Garuda Indonesia (Persero) Tbk|Pemantauan Khusus|Infrastruktur
+GJTL|Gajah Tunggal Tbk.|Utama|Lainnya
+GLOB|Globe Kita Terang Tbk.|Pemantauan Khusus|Lainnya
+GMTD|Gowa Makassar Tourism Developm|Pengembangan|Lainnya
+GOLD|Visi Telekomunikasi Infrastruk|Pengembangan|Lainnya
+GPRA|Perdana Gapuraprima Tbk.|Pengembangan|Lainnya
+GSMF|Equity Development Investment|Pengembangan|Lainnya
+GTBO|Garda Tujuh Buana Tbk|Pemantauan Khusus|Lainnya
+GWSA|Greenwood Sejahtera Tbk.|Pengembangan|Lainnya
+GZCO|Gozco Plantations Tbk.|Utama|Lainnya
+HADE|Himalaya Energi Perkasa Tbk.|Pengembangan|Lainnya
+HDFA|Radana Bhaskara Finance Tbk.|Pengembangan|Lainnya
+HERO|DFI Retail Nusantara Tbk.|Utama|Lainnya
+HEXA|Hexindo Adiperkasa Tbk.|Utama|Lainnya
+HITS|Humpuss Intermoda Transportasi|Pengembangan|Lainnya
+HMSP|H.M. Sampoerna Tbk.|Utama|Konsumer
+HOME|Hotel Mandarine Regency Tbk.|Pengembangan|Lainnya
+HOTL|Saraswati Griya Lestari Tbk.|Pemantauan Khusus|Lainnya
+HRUM|Harum Energy Tbk.|Utama|Energi & Bahan
+IATA|Karya Pacific Energy Tbk.|Pengembangan|Lainnya
+IBFN|Intan Baru Prana Tbk.|Pemantauan Khusus|Lainnya
+IBST|Inti Bangun Sejahtera Tbk.|Utama|Lainnya
+ICBP|Indofood CBP Sukses Makmur Tbk|Utama|Konsumer
+ICON|Island Concepts Indonesia Tbk.|Pengembangan|Lainnya
+IGAR|Champion Pacific Indonesia Tbk|Pengembangan|Lainnya
+IIKP|Inti Agri Resources Tbk|Pengembangan|Lainnya
+IKAI|Intikeramik Alamasri Industri|Utama|Lainnya
+IKBI|Sumi Indo Kabel Tbk.|Pengembangan|Lainnya
+IMAS|Indomobil Sukses Internasional|Utama|Konsumer
+IMJS|Indomobil Multi Jasa Tbk.|Pengembangan|Lainnya
+IMPC|Impack Pratama Industri Tbk.|Utama|Lainnya
+INAF|Indofarma Tbk.|Pemantauan Khusus|Lainnya
+INAI|Indal Aluminium Industry Tbk.|Pengembangan|Lainnya
+INCI|Intanwijaya Internasional Tbk|Pengembangan|Lainnya
+INCO|Vale Indonesia Tbk.|Utama|Energi & Bahan
+INDF|Indofood Sukses Makmur Tbk.|Utama|Konsumer
+INDR|Indo-Rama Synthetics Tbk.|Pengembangan|Lainnya
+INDS|Indospring Tbk.|Pengembangan|Lainnya
+INDX|Tanah Laut Tbk|Pengembangan|Lainnya
+INDY|Indika Energy Tbk.|Utama|Energi & Bahan
+INKP|Indah Kiat Pulp & Paper Tbk.|Utama|Energi & Bahan
+INPC|Bank Artha Graha Internasional|Utama|Lainnya
+INPP|Indonesian Paradise Property T|Pengembangan|Lainnya
+INRU|Toba Pulp Lestari Tbk.|Pengembangan|Lainnya
+INTA|Intraco Penta Tbk.|Pemantauan Khusus|Lainnya
+INTD|Inter Delta Tbk|Pengembangan|Lainnya
+INTP|Indocement Tunggal Prakarsa Tb|Utama|Energi & Bahan
+IPOL|Indopoly Swakarsa Industry Tbk|Pengembangan|Lainnya
+ISAT|Indosat Tbk.|Utama|Infrastruktur
+ISSP|Steel Pipe Industry of Indones|Utama|Energi & Bahan
+ITMA|Sumber Energi Andalan Tbk.|Pengembangan|Lainnya
+ITMG|Indo Tambangraya Megah Tbk.|Utama|Energi & Bahan
+JAWA|Jaya Agra Wattie Tbk.|Pengembangan|Lainnya
+JECC|Jembo Cable Company Tbk.|Pengembangan|Lainnya
+JIHD|Jakarta International Hotels &|Utama|Lainnya
+JKON|Jaya Konstruksi Manggala Prata|Utama|Infrastruktur
+JPFA|Japfa Comfeed Indonesia Tbk.|Utama|Konsumer
+JRPT|Jaya Real Property Tbk.|Utama|Properti
+JSMR|Jasa Marga (Persero) Tbk.|Utama|Infrastruktur
+JSPT|Jakarta Setiabudi Internasiona|Utama|Lainnya
+JTPE|Jasuindo Tiga Perkasa Tbk.|Utama|Lainnya
+KAEF|Kimia Farma (Persero) Tbk.|Pengembangan|Konsumer
+KARW|Meratus Jasa Prima Tbk.|Pemantauan Khusus|Lainnya
+KBLI|KMI Wire & Cable Tbk.|Utama|Lainnya
+KBLM|Kabelindo Murni Tbk.|Pengembangan|Lainnya
+KBLV|First Media Tbk.|Pengembangan|Lainnya
+KBRI|Kertas Basuki Rachmat Indonesi|Pemantauan Khusus|Lainnya
+KDSI|Kedawung Setia Industrial Tbk.|Pengembangan|Lainnya
+KIAS|Keramika Indonesia Assosiasi T|Pengembangan|Lainnya
+KICI|Kedaung Indah Can Tbk|Pengembangan|Lainnya
+KIJA|Kawasan Industri Jababeka Tbk.|Utama|Properti
+KKGI|Resource Alam Indonesia Tbk.|Utama|Lainnya
+KLBF|Kalbe Farma Tbk.|Utama|Konsumer
+KOBX|Kobexindo Tractors Tbk.|Pengembangan|Lainnya
+KOIN|Kokoh Inti Arebama Tbk|Pemantauan Khusus|Lainnya
+KONI|Perdana Bangun Pusaka Tbk|Pengembangan|Lainnya
+KOPI|Mitra Energi Persada Tbk.|Pengembangan|Lainnya
+KPIG|MNC Tourism Indonesia Tbk.|Utama|Lainnya
+KRAS|Krakatau Steel (Persero) Tbk.|Pengembangan|Energi & Bahan
+KREN|Quantum Clovera Investama Tbk.|Utama|Lainnya
+LAPD|JSI Sinergi Internasional Tbk.|Pemantauan Khusus|Lainnya
+LEAD|Logindo Samudramakmur Tbk.|Pengembangan|Lainnya
+LINK|Link Net Tbk.|Pengembangan|Lainnya
+LION|Lion Metal Works Tbk.|Pengembangan|Lainnya
+LPPS|Lenox Pasifik Investama Tbk.|Pengembangan|Lainnya
+LRNA|Eka Sari Lorena Transport Tbk.|Pengembangan|Lainnya
+LSIP|PP London Sumatra Indonesia Tb|Utama|Konsumer
+LTLS|Lautan Luas Tbk.|Utama|Lainnya
+MAGP|Multi Agro Gemilang Plantation|Pengembangan|Lainnya
+MAIN|Malindo Feedmill Tbk.|Utama|Lainnya
+MAPI|Mitra Adiperkasa Tbk.|Utama|Konsumer
+MAYA|Bank Mayapada Internasional Tb|Utama|Lainnya
+MBAP|Mitrabara Adiperdana Tbk.|Pengembangan|Lainnya
+MBSS|Mitrabahtera Segara Sejati Tbk|Utama|Lainnya
+MBTO|Martina Berto Tbk.|Pengembangan|Lainnya
+MCOR|Bank China Construction Bank I|Utama|Lainnya
+MDIA|Intermedia Capital Tbk.|Pengembangan|Lainnya
+MDKA|Merdeka Copper Gold Tbk.|Utama|Energi & Bahan
+MDLN|Modernland Realty Tbk.|Pengembangan|Lainnya
+MDRN|Modern Internasional Tbk.|Pemantauan Khusus|Lainnya
+MEDC|Medco Energi Internasional Tbk|Utama|Energi & Bahan
+MEGA|Bank Mega Tbk.|Utama|Keuangan
+MERK|Merck Tbk.|Utama|Lainnya
+META|Nusantara Infrastructure Tbk.|Pengembangan|Lainnya
+MFMI|Multifiling Mitra Indonesia Tb|Pengembangan|Lainnya
+MGNA|Magna Investama Mandiri Tbk.|Pengembangan|Lainnya
+MICE|Multi Indocitra Tbk.|Pengembangan|Lainnya
+MIDI|Midi Utama Indonesia Tbk.|Utama|Lainnya
+MIKA|Mitra Keluarga Karyasehat Tbk.|Utama|Konsumer
+MIRA|Mitra International Resources|Pengembangan|Lainnya
+MITI|Mitra Investindo Tbk.|Pengembangan|Lainnya
+MKPI|Metropolitan Kentjana Tbk.|Pengembangan|Properti
+MLBI|Multi Bintang Indonesia Tbk.|Utama|Lainnya
+MLIA|Mulia Industrindo Tbk|Utama|Lainnya
+MLPL|Multipolar Tbk.|Utama|Lainnya
+MLPT|Multipolar Technology Tbk.|Pengembangan|Teknologi
+MMLP|Mega Manunggal Property Tbk.|Pengembangan|Lainnya
+MNCN|Media Nusantara Citra Tbk.|Utama|Konsumer
+MPMX|Mitra Pinasthika Mustika Tbk.|Utama|Lainnya
+MPPA|Matahari Putra Prima Tbk.|Pengembangan|Lainnya
+MRAT|Mustika Ratu Tbk.|Pengembangan|Lainnya
+MREI|Maskapai Reasuransi Indonesia|Pengembangan|Lainnya
+MSKY|MNC Sky Vision Tbk.|Pengembangan|Lainnya
+MTDL|Metrodata Electronics Tbk.|Utama|Lainnya
+MTFN|Capitalinc Investment Tbk.|Pemantauan Khusus|Lainnya
+MTLA|Metropolitan Land Tbk.|Utama|Lainnya
+MTSM|Metro Realty Tbk.|Pengembangan|Lainnya
+MYOH|Samindo Resources Tbk.|Pengembangan|Lainnya
+MYOR|Mayora Indah Tbk.|Utama|Konsumer
+MYTX|Asia Pacific Investama Tbk.|Pemantauan Khusus|Lainnya
+NELY|Pelayaran Nelly Dwi Putri Tbk.|Pengembangan|Lainnya
+NIKL|Pelat Timah Nusantara Tbk.|Pengembangan|Lainnya
+NIRO|City Retail Developments Tbk.|Pengembangan|Lainnya
+NISP|Bank OCBC NISP Tbk.|Utama|Keuangan
+NOBU|Bank Nationalnobu Tbk.|Utama|Lainnya
+NRCA|Nusa Raya Cipta Tbk.|Pengembangan|Lainnya
+OCAP|Onix Capital Tbk.|Pemantauan Khusus|Lainnya
+OKAS|Ancora Indonesia Resources Tbk|Pengembangan|Lainnya
+OMRE|Indonesia Prima Property Tbk|Pengembangan|Lainnya
+PADI|Minna Padi Investama Sekuritas|Utama|Lainnya
+PALM|Provident Investasi Bersama Tb|Utama|Lainnya
+PANR|Panorama Sentrawisata Tbk.|Pengembangan|Lainnya
+PANS|Panin Sekuritas Tbk.|Utama|Lainnya
+PBRX|Pan Brothers Tbk.|Utama|Lainnya
+PDES|Destinasi Tirta Nusantara Tbk|Pengembangan|Lainnya
+PEGE|Panca Global Kapital Tbk.|Pengembangan|Lainnya
+PGAS|Perusahaan Gas Negara (Persero|Utama|Infrastruktur
+PGLI|Pembangunan Graha Lestari Inda|Pengembangan|Lainnya
+PICO|Pelangi Indah Canindo Tbk|Pengembangan|Lainnya
+PJAA|Pembangunan Jaya Ancol Tbk.|Pengembangan|Lainnya
+PKPK|Paragon Karya Perkasa Tbk.|Pengembangan|Lainnya
+PLIN|Plaza Indonesia Realty Tbk.|Utama|Lainnya
+PNBN|Bank Pan Indonesia Tbk|Utama|Keuangan
+PNBS|Bank Panin Dubai Syariah Tbk.|Pengembangan|Lainnya
+PNIN|Paninvest Tbk.|Utama|Lainnya
+PNLF|Panin Financial Tbk.|Utama|Lainnya
+PNSE|Pudjiadi & Sons Tbk.|Pengembangan|Lainnya
+POLY|Asia Pacific Fibers Tbk|Pemantauan Khusus|Lainnya
+POOL|Pool Advista Indonesia Tbk.|Pengembangan|Lainnya
+PPRO|PP Properti Tbk.|Utama|Lainnya
+PSAB|J Resources Asia Pasifik Tbk.|Pengembangan|Energi & Bahan
+PSDN|Prasidha Aneka Niaga Tbk|Pengembangan|Lainnya
+PSKT|Red Planet Indonesia Tbk.|Pengembangan|Lainnya
+PTBA|Bukit Asam (Persero) Tbk.|Utama|Energi & Bahan
+PTIS|Indo Straits Tbk.|Pengembangan|Lainnya
+PTPP|PP (Persero) Tbk.|Utama|Infrastruktur
+PTRO|Petrosea Tbk.|Utama|Energi & Bahan
+PTSN|Sat Nusapersada Tbk|Pengembangan|Lainnya
+PTSP|Pioneerindo Gourmet Internatio|Pengembangan|Lainnya
+PUDP|Pudjiadi Prestige Tbk.|Pengembangan|Lainnya
+PWON|Pakuwon Jati Tbk.|Utama|Properti
+PYFA|Pyridam Farma Tbk|Pengembangan|Lainnya
+RAJA|Rukun Raharja Tbk.|Utama|Lainnya
+RALS|Ramayana Lestari Sentosa Tbk.|Utama|Lainnya
+RANC|Supra Boga Lestari Tbk.|Pengembangan|Lainnya
+RBMS|Ristia Bintang Mahkotasejati T|Pengembangan|Lainnya
+RDTX|Roda Vivatex Tbk|Pengembangan|Lainnya
+RELI|Reliance Sekuritas Indonesia T|Pengembangan|Lainnya
+RICY|Ricky Putra Globalindo Tbk|Pengembangan|Lainnya
+RIGS|Rig Tenders Indonesia Tbk.|Pengembangan|Lainnya
+RIMO|Rimo International Lestari Tbk|Pengembangan|Lainnya
+RODA|Pikko Land Development Tbk.|Pengembangan|Lainnya
+ROTI|Nippon Indosari Corpindo Tbk.|Pengembangan|Lainnya
+RUIS|Radiant Utama Interinsco Tbk.|Pengembangan|Lainnya
+SAFE|Steady Safe Tbk|Pengembangan|Lainnya
+SAME|Sarana Meditama Metropolitan T|Utama|Lainnya
+SCCO|Supreme Cable Manufacturing &|Pengembangan|Lainnya
+SCMA|Surya Citra Media Tbk.|Utama|Konsumer
+SCPI|Organon Pharma Indonesia Tbk.|Pengembangan|Lainnya
+SDMU|Sidomulyo Selaras Tbk.|Pengembangan|Lainnya
+SDPC|Millennium Pharmacon Internati|Pengembangan|Lainnya
+SDRA|Bank Woori Saudara Indonesia 1|Pengembangan|Lainnya
+SGRO|Prime Agri Resources Tbk.|Utama|Lainnya
+SHID|Hotel Sahid Jaya International|Pengembangan|Lainnya
+SIDO|Industri Jamu dan Farmasi Sido|Utama|Konsumer
+SILO|Siloam International Hospitals|Utama|Konsumer
+SIMA|Siwani Makmur Tbk|Pemantauan Khusus|Lainnya
+SIMP|Salim Ivomas Pratama Tbk.|Utama|Lainnya
+SIPD|Sreeya Sewu Indonesia Tbk.|Pengembangan|Lainnya
+SKBM|Sekar Bumi Tbk.|Pengembangan|Lainnya
+SKLT|Sekar Laut Tbk.|Pengembangan|Lainnya
+SMAR|Sinar Mas Agro Resources and T|Utama|Konsumer
+SMBR|Semen Baturaja (Persero) Tbk.|Utama|Lainnya
+SMCB|Solusi Bangun Indonesia Tbk.|Utama|Lainnya
+SMDM|Suryamas Dutamakmur Tbk.|Pengembangan|Lainnya
+SMDR|Samudera Indonesia  Tbk.|Utama|Infrastruktur
+SMGR|Semen Indonesia (Persero) Tbk.|Utama|Energi & Bahan
+SMMA|Sinarmas Multiartha Tbk.|Pengembangan|Lainnya
+SMMT|Golden Eagle Energy Tbk.|Pengembangan|Lainnya
+SMRA|Summarecon Agung Tbk.|Utama|Properti
+SMRU|SMR Utama Tbk.|Pemantauan Khusus|Lainnya
+SMSM|Selamat Sempurna Tbk.|Utama|Konsumer
+SOCI|Soechi Lines Tbk.|Pengembangan|Lainnya
+SONA|Sona Topas Tourism Industry Tb|Pengembangan|Lainnya
+SPMA|Suparma Tbk.|Pengembangan|Lainnya
+SQMI|Wilton Makmur Indonesia Tbk.|Pengembangan|Lainnya
+SRAJ|Sejahteraraya Anugrahjaya Tbk.|Pengembangan|Konsumer
+SRSN|Indo Acidatama Tbk|Pengembangan|Lainnya
+SRTG|Saratoga Investama Sedaya Tbk.|Utama|Keuangan
+SSIA|Surya Semesta Internusa Tbk.|Utama|Properti
+SSMS|Sawit Sumbermas Sarana Tbk.|Utama|Konsumer
+SSTM|Sunson Textile Manufacture Tbk|Pengembangan|Lainnya
+STAR|Calculus Global Ventures Tbk.|Pengembangan|Lainnya
+STTP|Siantar Top Tbk.|Pengembangan|Lainnya
+SULI|SLJ Global Tbk.|Pengembangan|Lainnya
+SUPR|Solusi Tunas Pratama Tbk.|Pengembangan|Lainnya
+TALF|Tunas Alfin Tbk.|Pengembangan|Lainnya
+TARA|Agung Semesta Sejahtera Tbk.|Utama|Lainnya
+TAXI|Express Transindo Utama Tbk.|Utama|Lainnya
+TBIG|Tower Bersama Infrastructure T|Utama|Infrastruktur
+TBLA|Tunas Baru Lampung Tbk.|Utama|Konsumer
+TBMS|Tembaga Mulia Semanan Tbk.|Pengembangan|Lainnya
+TCID|Mandom Indonesia Tbk.|Pengembangan|Lainnya
+TFCO|Tifico Fiber Indonesia Tbk.|Pengembangan|Lainnya
+TGKA|Tigaraksa Satria Tbk.|Pengembangan|Lainnya
+TIFA|KDB Tifa Finance Tbk.|Pengembangan|Lainnya
+TINS|TIMAH (Persero) Tbk.|Utama|Energi & Bahan
+TIRA|Tira Austenite Tbk|Pengembangan|Lainnya
+TIRT|Tirta Mahakam Resources Tbk|Pemantauan Khusus|Lainnya
+TKIM|Pabrik Kertas Tjiwi Kimia Tbk.|Utama|Energi & Bahan
+TLKM|Telkom Indonesia (Persero) Tbk|Utama|Infrastruktur
+TMAS|Temas Tbk.|Utama|Infrastruktur
+TMPO|Tempo Intimedia Tbk.|Pengembangan|Lainnya
+TOBA|TBS Energi Utama Tbk.|Utama|Energi & Bahan
+TOTL|Total Bangun Persada Tbk.|Utama|Infrastruktur
+TOTO|Surya Toto Indonesia Tbk.|Utama|Lainnya
+TOWR|Sarana Menara Nusantara Tbk.|Utama|Infrastruktur
+TPIA|Chandra Asri Pacific Tbk.|Utama|Energi & Bahan
+TPMA|Trans Power Marine Tbk.|Utama|Lainnya
+TRAM|Trada Alam Minera Tbk.|Pengembangan|Lainnya
+TRIM|Trimegah Sekuritas Indonesia T|Utama|Lainnya
+TRIO|Trikomsel Oke Tbk.|Pemantauan Khusus|Lainnya
+TRIS|Trisula International Tbk.|Pengembangan|Lainnya
+TRST|Trias Sentosa Tbk.|Pengembangan|Lainnya
+TRUS|Trust Finance Indonesia Tbk|Pengembangan|Lainnya
+TSPC|Tempo Scan Pacific Tbk.|Utama|Lainnya
+ULTJ|Ultrajaya Milk Industry & Trad|Utama|Konsumer
+UNIC|Unggul Indah Cahaya Tbk.|Utama|Lainnya
+UNSP|Bakrie Sumatera Plantations Tb|Pengembangan|Lainnya
+UNTR|United Tractors Tbk.|Utama|Energi & Bahan
+UNVR|Unilever Indonesia Tbk.|Utama|Konsumer
+VICO|Victoria Investama Tbk.|Utama|Lainnya
+VINS|Victoria Insurance Tbk.|Pengembangan|Lainnya
+VIVA|Visi Media Asia Tbk.|Pengembangan|Lainnya
+VOKS|Voksel Electric Tbk.|Pengembangan|Lainnya
+VRNA|Mizuho Leasing Indonesia Tbk.|Pengembangan|Lainnya
+WAPO|Wahana Pronatural Tbk.|Pengembangan|Lainnya
+WEHA|WEHA Transportasi Indonesia Tb|Pengembangan|Lainnya
+WICO|Wicaksana Overseas Internation|Pemantauan Khusus|Lainnya
+WIIM|Wismilak Inti Makmur Tbk.|Utama|Lainnya
+WIKA|Wijaya Karya (Persero) Tbk.|Pengembangan|Infrastruktur
+WINS|Wintermar Offshore Marine Tbk.|Utama|Lainnya
+WOMF|Wahana Ottomitra Multiartha Tb|Pengembangan|Lainnya
+WSKT|Waskita Karya (Persero) Tbk.|Utama|Lainnya
+WTON|Wijaya Karya Beton Tbk.|Utama|Lainnya
+YPAS|Yanaprima Hastapersada Tbk|Pengembangan|Lainnya
+YULE|Yulie Sekuritas Indonesia Tbk.|Pengembangan|Lainnya
+ZBRA|Dosni Roha Indonesia Tbk.|Pemantauan Khusus|Lainnya
+SHIP|Sillo Maritime Perdana Tbk.|Utama|Lainnya
+CASA|Capital Financial Indonesia Tb|Pengembangan|Lainnya
+DAYA|Duta Intidaya Tbk.|Pengembangan|Lainnya
+DPUM|Dua Putra Utama Makmur Tbk.|Pengembangan|Lainnya
+IDPR|Indonesia Pondasi Raya Tbk.|Pengembangan|Lainnya
+JGLE|Graha Andrasentra Propertindo|Pengembangan|Lainnya
+KINO|Kino Indonesia Tbk.|Pengembangan|Lainnya
+MARI|Mahaka Radio Integra Tbk.|Pemantauan Khusus|Lainnya
+MKNT|Mitra Komunikasi Nusantara Tbk|Pengembangan|Lainnya
+OASA|Maharaksa Biru Energi Tbk.|Pengembangan|Lainnya
+POWR|Cikarang Listrindo Tbk.|Utama|Lainnya
+INCF|Indo Komoditi Korpora Tbk.|Pengembangan|Lainnya
+WSBP|Waskita Beton Precast Tbk.|Pemantauan Khusus|Lainnya
+PBSA|Paramita Bangun Sarana Tbk.|Pengembangan|Lainnya
+PRDA|Prodia Widyahusada Tbk.|Utama|Lainnya
+BOGA|Apollo Global Interactive Tbk.|Pengembangan|Lainnya
+BRIS|Bank Syariah Indonesia (Perser|Utama|Keuangan
+PORT|Nusantara Pelabuhan Handal Tbk|Utama|Lainnya
+CARS|Industri dan Perdagangan Bintr|Utama|Lainnya
+MINA|Sanurhasta Mitra Tbk.|Pengembangan|Lainnya
+CLEO|Sariguna Primatirta Tbk.|Utama|Konsumer
+TAMU|Pelayaran Tamarin Samudra Tbk.|Pengembangan|Lainnya
+CSIS|Cahayasakti Investindo Sukses|Pengembangan|Lainnya
+TGRA|Terregra Asia Energy Tbk.|Pemantauan Khusus|Lainnya
+FIRE|Alfa Energi Investama Tbk.|Pengembangan|Lainnya
+TOPS|Totalindo Eka Persada Tbk.|Pemantauan Khusus|Lainnya
+KMTR|Kirana Megatara Tbk.|Pengembangan|Lainnya
+ARMY|Armidian Karyatama Tbk.|Pengembangan|Lainnya
+MAPB|MAP Boga Adiperkasa Tbk.|Pengembangan|Lainnya
+WOOD|Integra Indocabinet Tbk.|Utama|Lainnya
+HRTA|Hartadinata Abadi Tbk.|Utama|Energi & Bahan
+HOKI|Buyung Poetra Sembada Tbk.|Pengembangan|Konsumer
+MPOW|Megapower Makmur Tbk.|Pengembangan|Lainnya
+MARK|Mark Dynamics Indonesia Tbk.|Utama|Lainnya
+NASA|Andalan Perkasa Abadi Tbk.|Pengembangan|Lainnya
+MDKI|Emdeki Utama Tbk.|Pengembangan|Lainnya
+BELL|Trisula Textile Industries Tbk|Pengembangan|Lainnya
+KIOS|Kioson Komersial Indonesia Tbk|Pengembangan|Lainnya
+GMFI|Garuda Maintenance Facility Ae|Pengembangan|Lainnya
+MTWI|Malacca Trust Wuwungan Insuran|Pengembangan|Lainnya
+ZINC|Kapuas Prima Coal Tbk.|Pemantauan Khusus|Lainnya
+MCAS|M Cash Integrasi Tbk.|Pengembangan|Lainnya
+PPRE|PP Presisi Tbk.|Pengembangan|Lainnya
+WEGE|Wijaya Karya Bangunan Gedung T|Pengembangan|Lainnya
+PSSI|IMC Pelita Logistik Tbk.|Utama|Lainnya
+MORA|Ekamas Mora Republik Tbk.|Utama|Lainnya
+DWGL|Dwi Guna Laksana Tbk.|Pengembangan|Lainnya
+PBID|Panca Budi Idaman Tbk.|Utama|Lainnya
+JMAS|Asuransi Jiwa Syariah Jasa Mit|Pengembangan|Lainnya
+CAMP|Campina Ice Cream Industry Tbk|Pengembangan|Lainnya
+IPCM|Jasa Armada Indonesia Tbk.|Utama|Lainnya
+PCAR|Prima Cakrawala Abadi Tbk.|Pengembangan|Lainnya
+LCKM|LCK Global Kedaton Tbk.|Pemantauan Khusus|Lainnya
+BOSS|Borneo Olah Sarana Sukses Tbk.|Pemantauan Khusus|Lainnya
+HELI|Jaya Trishindo Tbk.|Pengembangan|Lainnya
+JSKY|Sky Energy Indonesia Tbk.|Pemantauan Khusus|Lainnya
+INPS|Indah Prakasa Sentosa Tbk.|Pemantauan Khusus|Lainnya
+GHON|Gihon Telekomunikasi Indonesia|Pengembangan|Lainnya
+DFAM|Dafam Property Indonesia Tbk.|Pengembangan|Lainnya
+NICK|Charnic Capital Tbk.|Pengembangan|Lainnya
+BTPS|Bank BTPN Syariah Tbk.|Utama|Keuangan
+SPTO|Surya Pertiwi Tbk.|Utama|Lainnya
+PRIM|Royal Prima Tbk.|Pengembangan|Lainnya
+HEAL|Medikaloka Hermina Tbk.|Utama|Konsumer
+TRUK|Guna Timur Raya Tbk.|Pengembangan|Lainnya
+PZZA|Sarimelati Kencana Tbk.|Pengembangan|Lainnya
+TUGU|Asuransi Tugu Pratama Indonesi|Utama|Lainnya
+MSIN|MNC Digital Entertainment Tbk.|Utama|Lainnya
+SWAT|Sriwahana Adityakarta Tbk.|Pemantauan Khusus|Lainnya
+TNCA|Trimuda Nuansa Citra Tbk.|Pengembangan|Lainnya
+MAPA|Map Aktif Adiperkasa Tbk.|Utama|Konsumer
+TCPI|Transcoal Pacific Tbk.|Pengembangan|Lainnya
+IPCC|Indonesia Kendaraan Terminal T|Utama|Lainnya
+RISE|Jaya Sukses Makmur Sentosa Tbk|Pengembangan|Lainnya
+BPTR|Batavia Prosperindo Trans Tbk.|Pengembangan|Lainnya
+POLL|Pollux Properties Indonesia Tb|Pengembangan|Lainnya
+NFCX|NFC Indonesia Tbk.|Pengembangan|Lainnya
+MGRO|Mahkota Group Tbk.|Pengembangan|Lainnya
+NUSA|Sinergi Megah Internusa Tbk.|Pengembangan|Lainnya
+FILM|MD Entertainment Tbk.|Utama|Konsumer
+ANDI|Andira Agro Tbk.|Pengembangan|Lainnya
+LAND|Trimitra Propertindo Tbk.|Pengembangan|Lainnya
+MOLI|Madusari Murni Indah Tbk.|Pengembangan|Lainnya
+PANI|Pantai Indah Kapuk Dua Tbk.|Utama|Properti
+DIGI|Arkadia Digital Media Tbk.|Pemantauan Khusus|Lainnya
+CITY|Natura City Developments Tbk.|Pengembangan|Lainnya
+SAPX|Satria Antaran Prima Tbk.|Pengembangan|Lainnya
+SURE|Super Energy Tbk.|Pengembangan|Lainnya
+HKMU|HK Metals Utama Tbk.|Pemantauan Khusus|Lainnya
+MPRO|Maha Properti Indonesia Tbk.|Pengembangan|Lainnya
+GOOD|Garudafood Putra Putri Jaya Tb|Utama|Lainnya
+SKRN|Superkrane Mitra Utama Tbk.|Utama|Lainnya
+YELO|Yelooo Integra Datanet Tbk.|Pengembangan|Lainnya
+CAKK|Cahayaputra Asa Keramik Tbk.|Pengembangan|Lainnya
+SATU|Kota Satu Properti Tbk.|Pengembangan|Lainnya
+SOSS|ALSOK Indonesia Services Tbk.|Pengembangan|Lainnya
+DEAL|Dewata Freightinternational Tb|Pemantauan Khusus|Lainnya
+POLA|Pool Advista Finance Tbk.|Pengembangan|Lainnya
+DIVA|Distribusi Voucher Nusantara T|Pengembangan|Lainnya
+LUCK|Sentral Mitra Informatika Tbk.|Pengembangan|Lainnya
+URBN|Urban Jakarta Propertindo Tbk.|Pengembangan|Lainnya
+SOTS|Satria Mega Kencana Tbk.|Pengembangan|Lainnya
+ZONE|Mega Perintis Tbk.|Pengembangan|Lainnya
+PEHA|Phapros Tbk.|Pengembangan|Lainnya
+FOOD|Sentra Food Indonesia Tbk.|Pemantauan Khusus|Lainnya
+BEEF|Estika Tata Tiara Tbk.|Pengembangan|Lainnya
+POLI|Pollux Hotels Group Tbk.|Pengembangan|Lainnya
+CLAY|Citra Putra Realty Tbk.|Pengembangan|Lainnya
+NATO|Olympus Strategic Indonesia Tb|Pengembangan|Lainnya
+JAYA|Armada Berjaya Trans Tbk.|Pengembangan|Lainnya
+COCO|Wahana Interfood Nusantara Tbk|Pengembangan|Lainnya
+MTPS|Meta Epsi Tbk.|Pemantauan Khusus|Lainnya
+CPRI|Capri Nusa Satu Properti Tbk.|Pengembangan|Lainnya
+HRME|Menteng Heritage Realty Tbk.|Pengembangan|Lainnya
+POSA|Bliss Properti Indonesia Tbk.|Pemantauan Khusus|Lainnya
+JAST|Jasnita Telekomindo Tbk.|Pengembangan|Lainnya
+FITT|Fortune Resources Investment T|Pengembangan|Lainnya
+BOLA|Bali Bintang Sejahtera Tbk.|Utama|Lainnya
+CCSI|Communication Cable Systems In|Pengembangan|Lainnya
+SFAN|Surya Fajar Capital Tbk.|Pengembangan|Lainnya
+POLU|Golden Flower Tbk.|Pengembangan|Lainnya
+KJEN|Krida Jaringan Nusantara Tbk.|Pengembangan|Lainnya
+KAYU|Darmi Bersaudara Tbk.|Pemantauan Khusus|Lainnya
+ITIC|Indonesian Tobacco Tbk.|Pengembangan|Lainnya
+PAMG|Bima Sakti Pertiwi Tbk.|Pengembangan|Lainnya
+IPTV|MNC Vision Networks Tbk.|Utama|Lainnya
+BLUE|Berkah Prima Perkasa Tbk.|Pengembangan|Lainnya
+EAST|Eastparc Hotel Tbk.|Pengembangan|Lainnya
+LIFE|MSIG Life Insurance Indonesia|Pengembangan|Lainnya
+FUJI|Fuji Finance Indonesia Tbk.|Pengembangan|Lainnya
+KOTA|DMS Propertindo Tbk.|Utama|Lainnya
+INOV|Inocycle Technology Group Tbk.|Pengembangan|Lainnya
+ARKA|Arkha Jayanti Persada Tbk.|Pengembangan|Lainnya
+SMKL|Satyamitra Kemas Lestari Tbk.|Pengembangan|Lainnya
+HDIT|Hensel Davest Indonesia Tbk.|Utama|Lainnya
+KEEN|Kencana Energi Lestari Tbk.|Utama|Lainnya
+BAPI|Bhakti Agung Propertindo Tbk.|Pengembangan|Lainnya
+TFAS|Telefast Indonesia Tbk.|Pengembangan|Lainnya
+GGRP|Gunung Raja Paksi Tbk.|Pengembangan|Lainnya
+OPMS|Optima Prima Metal Sinergi Tbk|Pengembangan|Lainnya
+NZIA|Nusantara Almazia Tbk.|Pengembangan|Lainnya
+SLIS|Gaya Abadi Sempurna Tbk.|Pengembangan|Lainnya
+PURE|Trinitan Metals and Minerals T|Pemantauan Khusus|Lainnya
+IRRA|Itama Ranoraya Tbk.|Pengembangan|Lainnya
+DMMX|Digital Mediatama Maxima Tbk.|Pengembangan|Lainnya
+SINI|Singaraja Putra Tbk.|Pengembangan|Lainnya
+WOWS|Ginting Jaya Energi Tbk.|Pengembangan|Lainnya
+ESIP|Sinergi Inti Plastindo Tbk.|Pengembangan|Lainnya
+TEBE|Dana Brata Luhur Tbk.|Utama|Lainnya
+KEJU|Mulia Boga Raya Tbk.|Utama|Lainnya
+PSGO|Palma Serasih Tbk.|Utama|Lainnya
+AGAR|Asia Sejahtera Mina Tbk.|Pengembangan|Lainnya
+IFSH|Ifishdeco Tbk.|Pengembangan|Lainnya
+REAL|Repower Asia Indonesia Tbk.|Pengembangan|Lainnya
+IFII|Indonesia Fibreboard Industry|Pengembangan|Lainnya
+PMJS|Putra Mandiri Jembar Tbk.|Pengembangan|Lainnya
+UCID|Uni-Charm Indonesia Tbk.|Utama|Lainnya
+GLVA|Galva Technologies Tbk.|Utama|Lainnya
+PGJO|Bahtera Bumi Raya Tbk.|Akselerasi|Lainnya
+AMAR|Bank Amar Indonesia Tbk.|Utama|Lainnya
+CSRA|Cisadane Sawit Raya Tbk.|Pengembangan|Lainnya
+INDO|Royalindo Investa Wijaya Tbk.|Pengembangan|Lainnya
+AMOR|Ashmore Asset Management Indon|Pengembangan|Lainnya
+TRIN|Perintis Triniti Properti Tbk.|Pengembangan|Lainnya
+DMND|Diamond Food Indonesia Tbk.|Utama|Lainnya
+PURA|Putra Rajawali Kencana Tbk.|Pengembangan|Lainnya
+PTPW|Pratama Widya Tbk.|Pengembangan|Lainnya
+TAMA|Lancartama Sejati Tbk.|Pemantauan Khusus|Lainnya
+IKAN|Era Mandiri Cemerlang Tbk.|Pengembangan|Lainnya
+AYLS|Arkayana Lestari Grup Tbk.|Pengembangan|Lainnya
+DADA|Diamond Citra Propertindo Tbk.|Pengembangan|Lainnya
+ASPI|Andalan Sakti Primaindo Tbk.|Pengembangan|Lainnya
+ESTA|Esta Multi Usaha Tbk.|Pengembangan|Lainnya
+BESS|Batulicin Nusantara Maritim Tb|Pengembangan|Lainnya
+AMAN|Makmur Berkah Amanda Tbk.|Pengembangan|Lainnya
+CARE|Metro Healthcare Indonesia Tbk|Pengembangan|Lainnya
+SAMF|Saraswanti Anugerah Makmur Tbk|Utama|Lainnya
+KBAG|Karya Bersama Anugerah Tbk.|Pengembangan|Lainnya
+CBMF|Cahaya Bintang Medan Tbk.|Pengembangan|Lainnya
+RONY|Aracord Nusantara Group Tbk.|Pengembangan|Lainnya
+CSMI|Cipta Selera Murni Tbk.|Pengembangan|Lainnya
+BBSS|Bumi Benowo Sukses Sejahtera T|Pengembangan|Lainnya
+BHAT|Bhakti Multi Artha Tbk.|Pengembangan|Lainnya
+EPAC|Megalestari Epack Sentosaraya|Pengembangan|Lainnya
+UANG|Pakuan Tbk.|Pengembangan|Lainnya
+PGUN|Pradiksi Gunatama Tbk.|Pengembangan|Lainnya
+SOFA|Solusi Environment Asia Tbk.|Akselerasi|Lainnya
+PPGL|Prima Globalindo Logistik Tbk.|Akselerasi|Lainnya
+SGER|Sumber Global Energy Tbk.|Utama|Lainnya
+TRJA|Transkon Jaya Tbk.|Pengembangan|Lainnya
+PNGO|AEP Pinago Plantations Tbk.|Utama|Lainnya
+SCNP|Selaras Citra Nusantara Perkas|Pengembangan|Lainnya
+BBSI|Krom Bank Indonesia Tbk.|Utama|Lainnya
+KMDS|Kurniamitra Duta Sentosa Tbk.|Pengembangan|Lainnya
+PURI|Puri Global Sukses Tbk.|Pengembangan|Lainnya
+SOHO|Soho Global Health Tbk.|Pengembangan|Lainnya
+HOMI|Grand House Mulia Tbk.|Pengembangan|Lainnya
+ROCK|Rockfields Properti Indonesia|Pengembangan|Lainnya
+ENZO|Morenzo Abadi Perkasa Tbk.|Pengembangan|Lainnya
+PLAN|Planet Properindo Jaya Tbk.|Akselerasi|Lainnya
+PTDU|Djasa Ubersakti Tbk.|Pemantauan Khusus|Lainnya
+ATAP|Trimitra Prawara Goldland Tbk.|Pengembangan|Lainnya
+VICI|Victoria Care Indonesia Tbk.|Utama|Lainnya
+PMMP|Panca Mitra Multiperdana Tbk.|Pemantauan Khusus|Lainnya
+WIFI|Solusi Sinergi Digital Tbk.|Pengembangan|Infrastruktur
+FAPA|FAP Agri Tbk.|Pengembangan|Lainnya
+DCII|DCI Indonesia Tbk.|Pengembangan|Teknologi
+KETR|Ketrosden Triasmitra Tbk.|Pengembangan|Lainnya
+DGNS|Diagnos Laboratorium Utama Tbk|Pengembangan|Lainnya
+UFOE|Damai Sejahtera Abadi Tbk.|Pengembangan|Lainnya
+BANK|Bank Aladin Syariah Tbk.|Pengembangan|Lainnya
+WMUU|Widodo Makmur Unggas Tbk.|Pengembangan|Lainnya
+EDGE|Indointernet Tbk.|Pengembangan|Lainnya
+UNIQ|Ulima Nitra Tbk.|Pengembangan|Lainnya
+BEBS|Berkah Beton Sadaya Tbk.|Pengembangan|Lainnya
+SNLK|Sunter Lakeside Hotel Tbk.|Pengembangan|Lainnya
+ZYRX|Zyrexindo Mandiri Buana Tbk.|Pengembangan|Lainnya
+LFLO|Imago Mulia Persada Tbk.|Akselerasi|Lainnya
+FIMP|Fimperkasa Utama Tbk.|Akselerasi|Lainnya
+TAPG|Triputra Agro Persada Tbk.|Utama|Konsumer
+NPGF|Nusa Palapa Gemilang Tbk.|Pengembangan|Lainnya
+LUCY|Lima Dua Lima Tiga Tbk.|Akselerasi|Lainnya
+ADCP|Adhi Commuter Properti Tbk.|Pengembangan|Lainnya
+HOPE|Harapan Duta Pertiwi Tbk.|Pengembangan|Lainnya

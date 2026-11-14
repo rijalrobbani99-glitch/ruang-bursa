@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jurnal — Ruang Bursa</title>
+<style>
+  :root{--g:#13856b;--line:#e3e8ea;--mut:#6c7a82;--bg:#f5f7f8;--red:#c65d62}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:#18242e;font:14px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+  main{max-width:860px;margin:auto;padding:20px 14px 48px}
+  h1{font-size:22px;margin:0 0 4px}.sub{color:var(--mut);margin:0 0 16px;font-size:13px}
+  a{color:var(--g)}
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:12px}
+  .stat{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+  .stat small{display:block;color:var(--mut);font-size:11px}.stat b{font-size:18px}
+  .pos{color:#1b8a5a}.neg{color:var(--red)}.mut{color:var(--mut)}
+  button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 12px;font:inherit;cursor:pointer}
+  button.p{background:var(--g);border-color:var(--g);color:#fff;font-weight:600}
+  .row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:flex-start}
+  .tag{display:inline-block;font-size:11px;padding:1px 8px;border-radius:99px;background:#eef1f2;color:#4a5961;margin-left:6px}
+  .tag.fomo{background:#faeeee;color:#a2525a}.tag.open{background:#fff4de;color:#9a6a12}
+  .lv{font-size:12px;color:var(--mut);margin-top:2px}.why{font-size:12px;margin-top:6px;white-space:pre-wrap}
+  table{width:100%;border-collapse:collapse;font-size:12px}th,td{padding:6px 8px;border-bottom:1px solid #eef1f2;text-align:right}th:first-child,td:first-child{text-align:left}th{color:var(--mut);font-weight:600}
+  input{padding:6px 8px;border:1px solid var(--line);border-radius:8px;font:inherit;width:90px}
+  .bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+</style>
+</head>
+<body>
+<main>
+  <h1>Jurnal trading</h1>
+  <p class="sub">Catatan rencana dan hasil trade Anda. <a href="index.html">← Kembali ke screener</a></p>
+
+  <div class="bar">
+    <span class="mut" style="font-size:12px">Biaya pulang-pergi (%)</span><input id="fee" type="number" step="0.05" min="0" value="0.35">
+    <button id="csv">Ekspor CSV</button>
+  </div>
+  <div class="stats" id="stats"></div>
+  <div class="card" id="moods"></div>
+  <div id="list"></div>
+  <p class="mut" style="font-size:12px">Jurnal tersimpan hanya di browser perangkat ini. Ekspor CSV secara berkala sebagai cadangan, karena data hilang kalau data browser dihapus. Hasil dihitung dari harga keluar yang Anda isi dan bukan saran investasi.</p>
+</main>
+<script>
+  const JKEY='ruang-bursa-journal-v1',FKEY='ruang-bursa-fee-v1';
+  const $=id=>document.getElementById(id);
+  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const fmt=n=>new Intl.NumberFormat('id-ID').format(Math.round(n));
+  const f1=(x,d=2)=>x==null||!isFinite(x)?'—':x.toFixed(d).replace('.',',');
+  const cls=x=>x>0?'pos':x<0?'neg':'';
+  const MOOD={rencana:'Sesuai rencana',ragu:'Ragu-ragu',fomo:'FOMO'};
+  const MODE={swing:'Swing',trading:'Trading',scalping:'Scalping'};
+  let J=[],fee=0.35;
+  try{J=JSON.parse(localStorage.getItem(JKEY)||'[]')}catch(e){}
+  try{const f=localStorage.getItem(FKEY);if(f!=null&&f!=='')fee=+f}catch(e){}
+  $('fee').value=fee;
+  const save=()=>{try{localStorage.setItem(JKEY,JSON.stringify(J))}catch(e){alert('Gagal menyimpan')}};
+
+  // Beri tahu Worker (alert Telegram) posisi mana yang masih terbuka
+  async function syncPos(){
+    let c;try{c=JSON.parse(localStorage.getItem('ruang-bursa-alert-v1')||'null')}catch(e){}
+    if(!c||!c.url||!c.key)return;
+    const positions=J.filter(e=>e.status!=='closed').map(e=>({id:e.id,code:e.code,entry:e.entry,stop:e.stop,t1:e.t1}));
+    try{await fetch(c.url+'?sync=1',{method:'POST',headers:{'X-Key':c.key,'Content-Type':'application/json'},body:JSON.stringify({positions})})}catch(e){}
+  }
+  // Hasil satu trade tertutup: untung/rugi bersih (Rp) dan R (kelipatan jarak ke SL), setelah biaya
+  function result(e){
+    if(e.status!=='closed')return null;
+    const cost=e.entry*e.lot*100*fee/100,net=(e.exit-e.entry)*e.lot*100-cost;
+    return{net,R:(e.exit-e.entry-e.entry*fee/100)/(e.entry-e.stop)};
+  }
+  function render(){
+    const closed=J.filter(e=>e.status==='closed'),open=J.filter(e=>e.status!=='closed'),res=closed.map(result);
+    const wins=res.filter(r=>r.net>0).length,tot=res.reduce((s,r)=>s+r.net,0),totR=res.reduce((s,r)=>s+r.R,0);
+    const openRisk=open.reduce((s,e)=>s+e.lot*100*(e.entry-e.stop),0);
+    $('stats').innerHTML=[
+      ['Total catatan',J.length],['Masih terbuka',open.length],['Tertutup',closed.length],
+      ['Menang',closed.length?f1(wins/closed.length*100,0)+'%':'—'],
+      ['Untung/rugi bersih',`<span class="${cls(tot)}">${closed.length?'Rp '+fmt(tot):'—'}</span>`],
+      ['Rata² R',`<span class="${cls(totR)}">${closed.length?f1(totR/closed.length):'—'}</span>`],
+      ['Risiko posisi terbuka',open.length?'Rp '+fmt(openRisk):'—']
+    ].map(([a,b])=>`<div class="stat"><small>${a}</small><b>${b}</b></div>`).join('');
+
+    // Pengaruh kondisi saat memutuskan
+    const g={};closed.forEach((e,i)=>{(g[e.mood||'rencana']??=[]).push(res[i])});
+    const keys=Object.keys(g);
+    let m='<b>Hasil menurut kondisi saat memutuskan</b>';
+    if(!keys.length)m+='<div class="mut" style="margin-top:6px">Belum ada trade tertutup.</div>';
+    else{
+      m+='<table style="margin-top:6px"><thead><tr><th>Kondisi</th><th>Trade</th><th>Menang</th><th>Rata² R</th></tr></thead><tbody>'+
+        keys.map(k=>{const a=g[k],w=a.filter(r=>r.net>0).length,r=a.reduce((s,x)=>s+x.R,0)/a.length;
+          return `<tr><td>${esc(MOOD[k]||k)}</td><td>${a.length}</td><td>${f1(w/a.length*100,0)}%</td><td class="${cls(r)}">${f1(r)}</td></tr>`}).join('')+'</tbody></table>';
+      const pl=g.rencana,fo=g.fomo;
+      m+='<div class="mut" style="font-size:12px;margin-top:8px">'+((pl&&fo&&pl.length>=3&&fo.length>=3)?
+        `Trade FOMO rata-rata ${f1(fo.reduce((s,x)=>s+x.R,0)/fo.length)} R, dibanding ${f1(pl.reduce((s,x)=>s+x.R,0)/pl.length)} R untuk yang sesuai rencana.`:
+        'Perbandingan baru muncul setelah minimal 3 trade tertutup di tiap kondisi (Sesuai rencana dan FOMO). Jumlah kecil gampang menipu.')+'</div>';
+    }
+    $('moods').innerHTML=m;
+
+    $('list').innerHTML=J.length?[...J].reverse().map(e=>{
+      const r=result(e),d=new Date(e.t).toLocaleDateString('id-ID',{day:'numeric',month:'short',year:'numeric'});
+      return `<div class="card"><div class="row"><div><b>${esc(e.code)}</b><span class="tag">${esc(MODE[e.mode]||e.mode)}</span><span class="tag ${e.mood==='fomo'?'fomo':''}">${esc(MOOD[e.mood]||'')}</span>${e.status==='closed'?'':'<span class="tag open">terbuka</span>'}
+        <div class="lv">${d} · Entry ${fmt(e.entry)} · SL ${fmt(e.stop)} · TP ${fmt(e.t1)} · ${e.lot} lot</div></div>
+        <div style="text-align:right">${r?`<b class="${cls(r.net)}">Rp ${fmt(r.net)}</b><div class="lv">${f1(r.R)} R · keluar ${fmt(e.exit)}</div>`:''}</div></div>
+        ${e.reason?`<div class="why">${esc(e.reason)}</div>`:''}${e.exitNote?`<div class="why mut">Catatan keluar: ${esc(e.exitNote)}</div>`:''}
+        <div style="margin-top:8px;display:flex;gap:8px">${e.status==='closed'?'':`<button class="p" data-close="${e.id}">Tutup posisi</button>`}<button data-del="${e.id}">Hapus</button></div></div>`}).join(''):
+      '<div class="card mut">Belum ada catatan. Di screener, tekan tombol <b>Catat</b> pada kolom Level untuk menyimpan rencana trade.</div>';
+  }
+  $('list').addEventListener('click',e=>{
+    const c=e.target.closest('[data-close]'),d=e.target.closest('[data-del]');
+    if(c){const t=J.find(x=>x.id==c.dataset.close);if(!t)return;
+      const v=prompt('Harga keluar untuk '+t.code+' (Rp):');if(v==null)return;const p=+String(v).replace(/[^\d.]/g,'');
+      if(!(p>0)){alert('Harga tidak valid');return}
+      t.exit=p;t.exitNote=(prompt('Catatan keluar (opsional): kenapa keluar di sini?')||'').trim();t.status='closed';t.exitT=new Date().toISOString();save();syncPos();render()}
+    if(d&&confirm('Hapus catatan ini?')){J=J.filter(x=>x.id!=d.dataset.del);save();syncPos();render()}
+  });
+  $('fee').addEventListener('input',()=>{fee=Math.max(0,+$('fee').value||0);try{localStorage.setItem(FKEY,String(fee))}catch(e){}render()});
+  $('csv').onclick=()=>{
+    const q=v=>'"'+String(v??'').replace(/"/g,'""')+'"';
+    const head=['tanggal','kode','mode','kondisi','entry','sl','tp1','lot','alasan','status','harga_keluar','catatan_keluar','untung_rugi_bersih','R'];
+    const rows=J.map(e=>{const r=result(e);return[e.t,e.code,e.mode,e.mood,e.entry,e.stop,e.t1,e.lot,e.reason,e.status,e.exit,e.exitNote,r?Math.round(r.net):'',r?r.R.toFixed(2):''].map(q).join(',')});
+    const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['\ufeff'+[head.join(','),...rows].join('\n')],{type:'text/csv'}));a.download='jurnal-trading.csv';a.click();
+  };
+  render();
+</script>
+</body>
+</html>

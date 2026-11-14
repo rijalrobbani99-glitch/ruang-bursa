@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Backtest — Ruang Bursa</title>
+<style>
+  :root{--g:#21816b;--line:#e3e8ea;--mut:#6c7a82;--bg:#f6f8f8}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:#26363e;font:14px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+  main{max-width:900px;margin:auto;padding:20px 14px 48px}
+  h1{font-size:22px;margin:0 0 4px}.sub{color:var(--mut);margin:0 0 16px;font-size:13px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:14px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+  label{display:block;font-size:11px;color:var(--mut);margin-bottom:3px}
+  select,input,textarea{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;font:inherit;background:#fff}
+  textarea{min-height:52px;resize:vertical}
+  button{background:var(--g);color:#fff;border:0;border-radius:8px;padding:10px 16px;font:inherit;font-weight:600;cursor:pointer;margin-top:12px}
+  button:disabled{opacity:.5}
+  .scroll{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:12px;white-space:nowrap}
+  th,td{padding:8px 10px;border-bottom:1px solid #eef1f2;text-align:right}th:first-child,td:first-child{text-align:left}
+  th{color:var(--mut);font-weight:600;font-size:11px}tr.hl td{background:#eef7f4;font-weight:600}
+  .pos{color:#1b8a5a}.neg{color:#c0484d}.note{font-size:12px;color:var(--mut)}
+  ul{margin:6px 0 0;padding-left:18px}li{margin-bottom:3px}
+  #verdict{font-size:14px}
+</style>
+</head>
+<body>
+<main>
+  <h1>Backtest skor Swing &amp; Trading</h1>
+  <p class="sub">Mengulang aturan skor di data harian 2 tahun terakhir, lalu melihat hasil sinyalnya. <a href="index.html" style="color:var(--g)">← Kembali</a></p>
+
+  <div class="card">
+    <div class="grid">
+      <div><label>Mode</label><select id="mode"><option value="swing">Swing (tahan maks. 10 hari)</option><option value="trading">Trading (besoknya, 1 hari)</option></select></div>
+      <div><label>Jumlah saham acak (Papan Utama)</label><input id="n" type="number" value="60" min="5" max="150"></div>
+      <div><label>Ambang BUY (skor ≥)</label><input id="thr" type="number" value="70" min="10" max="100"></div>
+      <div><label>Biaya pulang-pergi (%)</label><input id="fee" type="number" value="0.35" step="0.05" min="0"></div>
+    </div>
+    <div style="margin-top:10px"><label>Atau isi kode manual (pisahkan koma; mengabaikan jumlah acak)</label><textarea id="manual" placeholder="BBCA, BBRI, TLKM"></textarea></div>
+    <button id="run">Jalankan backtest</button>
+    <div class="note" id="status" style="margin-top:8px"></div>
+  </div>
+
+  <div class="card" id="out" style="display:none">
+    <div id="verdict"></div>
+    <div class="scroll" style="margin-top:10px"><table id="tbl"></table></div>
+    <div id="half" class="note" style="margin-top:10px"></div>
+  </div>
+
+  <div class="card">
+    <b>Cara membaca &amp; keterbatasan</b>
+    <ul class="note">
+      <li><b>Entry</b> di harga buka hari berikutnya setelah sinyal. SL/TP memakai level yang sama dengan tabel utama. Jika SL dan TP tersentuh di hari yang sama, dianggap SL lebih dulu (konservatif). Sinyal yang gap melewati SL/TP dilewati.</li>
+      <li><b>Setiap sinyal dihitung terpisah</b>, bukan simulasi portofolio, jadi sinyal beruntun pada saham yang sama saling tumpang-tindih.</li>
+      <li><b>Hanya saham yang tercatat sekarang.</b> Saham yang sudah delisting tidak ada, sehingga hasil cenderung lebih bagus dari kenyataan (survivorship bias).</li>
+      <li><b>Aturan skor dirancang lalu diuji pada data yang sama</b> (in-sample). Bandingkan paruh pertama dan kedua, dan hati-hati dengan jumlah sinyal yang sedikit.</li>
+      <li><b>Mode Trading</b> diuji sebagai "sinyal di penutupan, trade besoknya". Di layar utama sinyalnya muncul saat sesi berjalan, jadi tidak persis sama.</li>
+      <li><b>Scalping tidak bisa diuji</b> di sini: data 5 menit dari Yahoo hanya sekitar 60 hari dan tertunda.</li>
+      <li>Hasil masa lalu tidak menjamin masa depan. Bukan saran investasi.</li>
+    </ul>
+  </div>
+</main>
+<script>
+  // URL Worker diambil dari pengaturan di index.html (tombol "Hubungkan Worker"). Opsional: isi API_URL_FIXED.
+  const API_URL_FIXED='';
+  const API_URL=(API_URL_FIXED||(()=>{try{return localStorage.getItem('ruang-bursa-api-v1')||''}catch(e){return''}})()).trim().replace(/\/+$/,'');
+
+  // ===== ATURAN SKOR — harus sama dengan worker.js (fungsi daily & levels). Jika diubah di sana, ubah di sini juga =====
+  const tick=p=>p<200?1:p<500?2:p<2000?5:p<5000?10:25;
+  const rnd=(x,t)=>Math.round(x/t)*t;
+  const sma=(a,n)=>a.length>=n?a.slice(-n).reduce((x,y)=>x+y,0)/n:null;
+  function rsi(c,n=14){if(c.length<=n)return null;let g=0,l=0;for(let i=c.length-n;i<c.length;i++){const d=c[i]-c[i-1];if(d>=0)g+=d;else l-=d}return l===0?100:100-100/(1+g/l)}
+  function atr(cs,n=14){if(cs.length<=n)return null;let s=0;for(let i=cs.length-n;i<cs.length;i++){const pc=cs[i-1].c;s+=Math.max(cs[i].h-cs[i].l,Math.abs(cs[i].h-pc),Math.abs(cs[i].l-pc))}return s/n}
+  function levels(price,rawStop){
+    if(!isFinite(rawStop))return null;
+    const t=tick(price),entry=rnd(price,t);let stop=Math.floor(rawStop/t)*t;
+    if(stop>=entry)stop=entry-t;if(stop<=0)return null;
+    const risk=entry-stop,x1=entry+1.5*risk;
+    return{entry,stop,t1:rnd(x1,tick(x1))};
+  }
+  function evalAt(cs,mode){
+    const n=cs.length;if(n<25)return null;
+    const last=cs[n-1],prev=cs[n-2],price=last.c,closes=cs.map(x=>x.c);
+    const s20=sma(closes,20),s50=sma(closes,50),rs=rsi(closes),a=atr(cs);
+    const avgV=sma(cs.slice(0,-1).map(x=>x.v),20),volx=avgV?last.v/avgV:0;
+    const hh=Math.max(...cs.slice(-21,-1).map(x=>x.h)),chg=(price/prev.c-1)*100;
+    let score=0,rawStop;
+    if(mode==='swing'){
+      if(price>s20)score+=20;if(s50!=null&&s20>s50)score+=20;if(rs>=45&&rs<=65)score+=20;
+      if(volx>=1.2)score+=15;if(price>=hh*0.97)score+=15;if(price>closes[n-6])score+=10;
+      rawStop=Math.max(price-2*a,Math.min(...cs.slice(-10).map(x=>x.l))*0.99);
+    }else{
+      const range=last.h-last.l,pos=range>0?(price-last.l)/range:0.5;
+      rawStop=Math.max(price-1.2*a,last.l*0.995);
+      if(chg>=1&&chg<=8)score+=25;if(volx>=1.5)score+=30;if(pos>=0.7)score+=20;
+      if(price>s20)score+=15;if(range/prev.c*100>=2)score+=10;
+    }
+    return{score,lv:levels(price,rawStop)};
+  }
+
+  // ===== SIMULASI SATU SINYAL =====
+  function simulate(cs,i,H,lv,fee){
+    if(!lv||i+H>=cs.length)return null;
+    const entry=cs[i+1].o;
+    if(!(entry>lv.stop&&entry<lv.t1))return null;
+    let exit=null,why='waktu';
+    for(let k=i+1;k<=i+H;k++){
+      const d=cs[k];
+      if(d.o<=lv.stop){exit=d.o;why='SL';break}
+      if(d.l<=lv.stop){exit=lv.stop;why='SL';break}
+      if(d.o>=lv.t1){exit=d.o;why='TP';break}
+      if(d.h>=lv.t1){exit=lv.t1;why='TP';break}
+    }
+    if(exit==null)exit=cs[i+H].c;
+    const net=(exit/entry-1)*100-fee,riskPct=(entry-lv.stop)/entry*100;
+    return{net,R:net/riskPct,why};
+  }
+  function runSymbol(cs,mode,fee){
+    const H=mode==='swing'?10:1,out=[];
+    for(let i=25;i<cs.length-H-1;i++){
+      const e=evalAt(cs.slice(0,i+1),mode);if(!e)continue;
+      const r=simulate(cs,i,H,e.lv,fee);if(r)out.push({score:e.score,t:cs[i].t,...r});
+    }
+    return out;
+  }
+
+  // ===== STATISTIK =====
+  function stats(a){
+    if(!a.length)return null;
+    const n=a.length,w=a.filter(x=>x.net>0),l=a.filter(x=>x.net<=0);
+    const gw=w.reduce((s,x)=>s+x.net,0),gl=-l.reduce((s,x)=>s+x.net,0);
+    const pc=k=>a.filter(x=>x.why===k).length/n*100;
+    return{n,win:w.length/n*100,avg:a.reduce((s,x)=>s+x.net,0)/n,R:a.reduce((s,x)=>s+x.R,0)/n,pf:gl>0?gw/gl:null,tp:pc('TP'),sl:pc('SL'),tm:pc('waktu')};
+  }
+  const f1=(x,d=2)=>x==null?'—':x.toFixed(d).replace('.',',');
+  const cls=x=>x==null?'':x>0?'pos':'neg';
+
+  // ===== UI =====
+  const $=id=>document.getElementById(id);
+  async function loadCodes(){
+    const t=await(await fetch('saham.txt',{cache:'no-store'})).text();
+    return t.split(/\r?\n/).map(l=>l.split('|')).filter(p=>/^[A-Z]{4}$/.test((p[0]||'').trim())&&(p[2]||'').trim()==='Utama').map(p=>p[0].trim());
+  }
+  async function fetchCandles(code){
+    const r=await fetch(`${API_URL}?raw=${code}&range=2y`);if(!r.ok)throw new Error('HTTP '+r.status);
+    const res=(await r.json()).chart?.result?.[0];if(!res)throw new Error('kosong');
+    const q=res.indicators.quote[0],cs=[];
+    (res.timestamp||[]).forEach((t,i)=>{if(q.open[i]!=null&&q.high[i]!=null&&q.low[i]!=null&&q.close[i]!=null)cs.push({t,o:q.open[i],h:q.high[i],l:q.low[i],c:q.close[i],v:q.volume[i]||0})});
+    return cs;
+  }
+  async function run(){
+    if(!API_URL){$('status').textContent='Worker belum terhubung. Buka halaman utama dan tekan Hubungkan Worker dulu.';return}
+    const mode=$('mode').value,thr=+$('thr').value,fee=+$('fee').value||0;
+    $('run').disabled=true;$('out').style.display='none';
+    try{
+      let codes=$('manual').value.toUpperCase().split(/[^A-Z]+/).filter(c=>c.length===4);
+      if(!codes.length){
+        const all=await loadCodes();
+        for(let i=all.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[all[i],all[j]]=[all[j],all[i]]}
+        codes=all.slice(0,Math.min(+$('n').value||60,150));
+      }
+      const all=[];let done=0,fail=0,idx=0;
+      const worker=async()=>{while(idx<codes.length){const c=codes[idx++];
+        try{const cs=await fetchCandles(c);all.push(...runSymbol(cs,mode,fee))}catch(e){fail++}
+        done++;$('status').textContent=`Memproses ${done}/${codes.length} saham…`;
+        await new Promise(r=>setTimeout(r));}};
+      await Promise.all([worker(),worker(),worker()]);
+      show(all,mode,thr,codes.length-fail,fail);
+    }catch(e){$('status').textContent='Gagal: '+e.message}
+    $('run').disabled=false;
+  }
+  function show(all,mode,thr,ok,fail){
+    $('status').textContent=`Selesai: ${ok} saham diproses${fail?`, ${fail} gagal dimuat`:''}.`;
+    const rows=[['Semua sinyal (pembanding)',all],['Skor < 30',all.filter(x=>x.score<30)],['Skor 30–69',all.filter(x=>x.score>=30&&x.score<70)],
+      ['Skor 70–79',all.filter(x=>x.score>=70&&x.score<80)],['Skor 80–89',all.filter(x=>x.score>=80&&x.score<90)],['Skor ≥ 90',all.filter(x=>x.score>=90)]];
+    const buy=all.filter(x=>x.score>=thr);rows.push([`BUY (skor ≥ ${thr})`,buy]);
+    let h='<thead><tr><th>Kelompok</th><th>Sinyal</th><th>Menang</th><th>Rata² bersih</th><th>Rata² R</th><th>Profit factor</th><th>TP / SL / waktu</th></tr></thead><tbody>';
+    rows.forEach(([name,a],i)=>{const s=stats(a);
+      h+=s?`<tr class="${i===rows.length-1?'hl':''}"><td>${name}</td><td>${s.n}</td><td>${f1(s.win,1)}%</td><td class="${cls(s.avg)}">${f1(s.avg)}%</td><td class="${cls(s.R)}">${f1(s.R)}</td><td>${f1(s.pf)}</td><td>${Math.round(s.tp)}% / ${Math.round(s.sl)}% / ${Math.round(s.tm)}%</td></tr>`:`<tr><td>${name}</td><td colspan="6" style="text-align:left;color:#9aa5ab">tidak ada sinyal</td></tr>`});
+    $('tbl').innerHTML=h+'</tbody>';
+    const sb=stats(buy),sa=stats(all);let v;
+    if(!sb||sb.n<30)v='<b>Sinyal BUY terlalu sedikit untuk disimpulkan</b> (kurang dari 30). Tambah jumlah saham atau turunkan ambang.';
+    else{const d=sb.avg-sa.avg;
+      v=`<b>BUY rata-rata ${f1(sb.avg)}% per sinyal (setelah biaya) vs ${f1(sa.avg)}% untuk semua sinyal.</b> Selisih ${d>=0?'+':''}${f1(d)} poin. `+
+        (sb.n<100?'Sampel masih kecil (<100), anggap sebagai petunjuk awal saja. ':'')+
+        (d>0.15&&sb.avg>0?'Ada indikasi keunggulan pada data ini, tetapi belum teruji di luar sampel.':d>0.15?'Lebih baik dari pembanding, tetapi masih rugi setelah biaya.':'Belum terlihat keunggulan dibanding sinyal acak pada data ini.');}
+    $('verdict').innerHTML=v;
+    const sorted=buy.map(x=>x.t).sort((a,b)=>a-b),mid=sorted[Math.floor(sorted.length/2)]||0;
+    const a1=stats(buy.filter(x=>x.t<=mid)),a2=stats(buy.filter(x=>x.t>mid));
+    $('half').innerHTML=a1&&a2?`Konsistensi BUY: paruh pertama ${f1(a1.avg)}% (${a1.n} sinyal) · paruh kedua ${f1(a2.avg)}% (${a2.n} sinyal). Kalau tandanya berbeda, hasilnya belum stabil.`:'';
+    $('out').style.display='';
+  }
+  $('run').onclick=run;
+</script>
+</body>
+</html>
