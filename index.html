@@ -89,7 +89,7 @@
     [data-dtchart]{cursor:pointer;color:var(--green);font-weight:600}
       body:not(.live) .col-rs{display:none}
   
-    .market-badge{display:none;margin:10px 0 0;padding:9px 12px;border-radius:10px;font-size:12px;border:1px solid var(--line);background:#fff;line-height:1.5}
+    .market-badge{display:none;margin:0 0 16px;padding:9px 12px;border-radius:10px;font-size:12px;border:1px solid var(--line);background:#fff;line-height:1.5}
     .market-badge.up{background:#eef7f4;border-color:#cfe6dd}.market-badge.down{background:#fbefef;border-color:#f0d3d3}.market-badge.mix{background:#f6f4ea;border-color:#e8e2c8}
     .market-badge span{color:var(--muted)}
   </style>
@@ -107,10 +107,10 @@
       <div class="side-bottom"><strong>Pasar Indonesia</strong>BEI · Saham</div>
     </aside>
     <main>
-      <div class="topbar"><div class="breadcrumb">Workspace <span style="color:#c2cbd0;margin:0 6px">/</span> <b id="crumb">Watchlist</b></div><div class="righttop"><span class="market-state"><i class="market-dot"></i>Mode demo aktif</span><div class="avatar">RB</div></div></div>
+      <div class="topbar"><div class="breadcrumb">Workspace <span style="color:#c2cbd0;margin:0 6px">/</span> <b id="crumb">Watchlist</b></div><div class="righttop"><span class="market-state" id="market-chip"><i class="market-dot"></i>Mode demo aktif</span><div class="avatar">RB</div></div></div>
+      <div class="market-badge" id="market-badge"></div>
       <section class="headline"><div><div class="eyebrow">Ruang riset saham</div><h1 id="page-title">Pantau saham pilihanmu</h1><p id="page-subtitle">Semua yang kamu ikuti, tersusun dalam satu tempat.</p></div><div class="date-pill" id="data-pill">◷ &nbsp; Data demonstrasi</div></section>
       <div class="demo-banner"><div class="demo-icon">i</div><div id="demo-text"><b>Mode prototipe — angka di bawah adalah data simulasi</b>Belum terhubung ke data BEI. Harga, indikator, dan rasio hanya untuk menunjukkan cara kerja watchlist dan screener.</div></div>
-      <div class="market-badge" id="market-badge"></div>
       <div class="summary-grid">
         <div class="card metric"><div class="metric-head">Saham dipantau <span class="metric-icon">☆</span></div><div class="metric-value" id="metric-watch">—</div><div class="metric-sub">Tersimpan di perangkat ini</div></div>
         <div class="card metric"><div class="metric-head"><span id="metric-buy-label">Sinyal teknikal</span> <span class="metric-icon">⌁</span></div><div class="metric-value" id="metric-buy">—</div><div class="metric-sub" id="metric-buy-sub">Kondisi demo pada daftar</div></div>
@@ -246,6 +246,7 @@
     }
     function enterLive(){
       LIVE=true;document.body.classList.add('live');
+      $('market-chip').innerHTML='<i class="market-dot" style="background:#9aa5ab"></i>Memuat IHSG…';
       const vo=document.querySelector('#sort-filter option[value="volume-desc"]');if(vo){vo.value='val-desc';vo.textContent='Nilai transaksi tertinggi'}
       const vh=document.querySelector('th[data-sort="volume"]');if(vh){vh.dataset.sort='val';vh.title='Urutkan menurut nilai transaksi (Rp), bukan jumlah lembar';vh.textContent='VOLUME · NILAI ↕'}
       const pe=document.querySelector('[data-sort="pe"]'),pb=document.querySelector('[data-sort="pb"]');
@@ -438,17 +439,46 @@
     // ====== KEKUATAN VS IHSG & EKSPOR CSV ======
     let IHSG=null;
     let MKT=null;
-    function renderMarket(){
-      const el=$('market-badge');
-      if(!LIVE||!MKT||MKT.sma20==null||MKT.sma50==null){el.style.display='none';return}
-      const p=MKT.price,a=MKT.sma20,b=MKT.sma50;let cls,t,note='';
-      if(p>a&&a>b){cls='up';t='Pasar kuat';note=`IHSG ${fmt(p)} di atas SMA20 (${fmt(a)}) dan SMA50 (${fmt(b)}).`}
-      else if(p<b){cls='down';t='Pasar melemah';note=`IHSG ${fmt(p)} di bawah SMA50 (${fmt(b)}). Pertimbangkan lebih selektif dan risiko per trade lebih kecil.`}
-      else{cls='mix';t='Pasar campuran';note=`IHSG ${fmt(p)}; SMA20 ${fmt(a)}, SMA50 ${fmt(b)}. Arah belum jelas.`}
-      el.className='market-badge '+cls;el.style.display='block';
-      el.innerHTML=`<b>${t}</b> · ${note}${MKT.r20!=null?` 1 bulan ${pct(MKT.r20)}.`:''} <span>Penanda umum, belum diuji di backtest Anda.</span>`;
+    // Klasifikasi tren IHSG dari posisi harga terhadap SMA20 dan SMA50 (+ arah SMA50, RSI, high 3 bulan)
+    function trendOf(m){
+      const p=m.price,a=m.sma20,b=m.sma50;
+      if([p,a,b].some(x=>x==null))return null;
+      const slope=m.sma50prev!=null?b-m.sma50prev:null;
+      let label,tone,why,caution=false;
+      if(Math.abs(a-b)/b<0.004&&Math.abs(p-b)/b<0.015){label='Sideways';tone='mix';why='SMA20 dan SMA50 berimpit dan harga ada di sekitarnya: belum ada arah yang jelas.'}
+      else if(p>a&&a>b){
+        if(slope==null||slope>0){label='Uptrend';tone='up';why='Harga di atas SMA20 dan SMA50, dan SMA50 naik: tren naik terjaga.'}
+        else{label='Menguat, tren menengah belum naik';tone='mix';why='Harga di atas SMA20 dan SMA50, tetapi SMA50 masih datar atau turun: kenaikan belum terkonfirmasi.'}
+      }
+      else if(p>b&&b>a){label='Rebound (pembalikan awal)';tone='mix';why='Harga sudah di atas SMA50, tetapi SMA20 belum menyusul. Tanda pembalikan awal, belum terkonfirmasi.'}
+      else if(a>p&&p>b){label='Pullback';tone='mix';why='Koreksi sementara dalam uptrend: harga turun di bawah SMA20 tetapi masih di atas SMA50.'}
+      else if(b>p&&p>a){label='Technical rebound';tone='mix';why='Pantulan sementara dalam downtrend: harga di atas SMA20 tetapi masih di bawah SMA50.'}
+      else if(a>b&&b>p){label='Koreksi dalam';tone='down';caution=true;why='Harga jatuh di bawah SMA50 walau SMA20 masih di atasnya: uptrend sedang terancam.'}
+      else if(b>a&&a>p){label='Downtrend';tone='down';caution=true;why='Harga di bawah SMA20 dan SMA50, dan SMA20 di bawah SMA50: tren turun.'}
+      else{label='Sideways';tone='mix';why='Posisi harga terhadap SMA20 dan SMA50 belum menunjukkan arah yang jelas.'}
+      const extra=[];
+      if(m.rsi!=null){if(m.rsi>=70)extra.push(`RSI ${Math.round(m.rsi)}: jenuh beli (overbought), rawan koreksi`);else if(m.rsi<=30)extra.push(`RSI ${Math.round(m.rsi)}: jenuh jual (oversold), peluang pantulan teknikal`)}
+      if(m.hi60!=null&&p>=m.hi60*0.995)extra.push('dekat atau menembus high 3 bulan (breakout)');
+      return{label,tone,why,caution,extra};
     }
-    async function loadIhsg(){try{const j=await(await fetch(API_URL+'?ihsg=1')).json();if(j&&j.ret){IHSG=j.ret;MKT={price:j.price,sma20:j.sma20,sma50:j.sma50,r20:j.ret.r20};renderMarket()}}catch(e){}}
+    function renderMarket(){
+      const el=$('market-badge'),chip=$('market-chip'),t=MKT&&trendOf(MKT);
+      if(!LIVE||!t){el.style.display='none';return}
+      const ch=MKT.r1,arrow=ch==null?'':ch>=0.1?'▲':ch<=-0.1?'▼':'•',day=ch==null?'':ch>=0.1?'menguat':ch<=-0.1?'melemah':'datar';
+      const col={up:'#1b8a5a',mix:'#d49a2a',down:'#c0484d'}[t.tone],dc=ch==null?'':ch>=0?'#1b8a5a':'#c0484d';
+      chip.innerHTML=`<i class="market-dot" style="background:${col}"></i>IHSG ${fmt(MKT.price)} ${arrow} ${pct(ch)} · ${esc(t.label)}`;
+      el.className='market-badge '+t.tone;el.style.display='block';
+      el.innerHTML=`<div style="font-size:14px"><b>IHSG ${fmt(MKT.price)}</b> <b style="color:${dc}">${arrow} ${pct(ch)}</b>${day?` hari ini (${day})`:''} · Tren: <b>${esc(t.label)}</b></div>`+
+        `<div style="margin-top:4px">${esc(t.why)}${t.extra.length?' '+esc(t.extra.join('; '))+'.':''}</div>`+
+        `<div style="margin-top:4px"><span>SMA20 ${fmt(Math.round(MKT.sma20))} · SMA50 ${fmt(Math.round(MKT.sma50))}${MKT.r20!=null?' · 1 bulan '+pct(MKT.r20):''}. ${t.caution?'Pertimbangkan lebih selektif dan risiko per trade lebih kecil. ':''}Penanda umum, belum diuji di backtest Anda.</span></div>`;
+    }
+    async function loadIhsg(){
+      try{
+        const j=await(await fetch(API_URL+'?ihsg=1')).json();
+        if(!(j&&j.ret))throw new Error('x');
+        IHSG=j.ret;MKT={price:j.price,sma20:j.sma20,sma50:j.sma50,sma50prev:j.sma50prev,rsi:j.rsi,hi60:j.hi60,r1:j.ret.r1,r20:j.ret.r20};renderMarket();
+      }catch(e){if(LIVE&&!MKT)$('market-chip').innerHTML='<i class="market-dot" style="background:#9aa5ab"></i>IHSG tidak tersedia'}
+    }
     function calcRS(){stocks.forEach(s=>{s.rs=IHSG&&IHSG.r20!=null&&s.r20!=null?Math.round((s.r20-IHSG.r20)*10)/10:null})}
     function exportCsv(){
       const rows=filtered();if(!rows.length){toast('Tidak ada data untuk diekspor');return}
