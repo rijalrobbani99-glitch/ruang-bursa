@@ -10,8 +10,9 @@
   body{margin:0;background:var(--bg);color:#26363e;font:14px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
   main{max-width:900px;margin:auto;padding:20px 14px 48px}
   h1{font-size:22px;margin:0 0 4px}.sub{color:var(--mut);margin:0 0 16px;font-size:13px}
+  h3{font-size:14px;margin:16px 0 6px}
   .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:14px}
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
   label{display:block;font-size:11px;color:var(--mut);margin-bottom:3px}
   select,input,textarea{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;font:inherit;background:#fff}
   textarea{min-height:52px;resize:vertical}
@@ -27,26 +28,36 @@
 </head>
 <body>
 <main>
-  <h1>Backtest skor Swing &amp; Trading</h1>
-  <p class="sub">Mengulang aturan skor di data harian 2 tahun terakhir, lalu melihat hasil sinyalnya. <a href="index.html" style="color:var(--g)">← Kembali</a></p>
+  <h1>Backtest</h1>
+  <p class="sub">Menguji aturan di data harian 2 tahun terakhir. <a href="index.html" style="color:var(--g)">← Kembali</a></p>
 
   <div class="card" style="background:#eef7f4;border-color:#cfe6dd">
     <b>Apa ini?</b>
-    <p style="margin:4px 0 10px">Backtest = <b>uji coba di masa lalu</b>. Halaman ini mengambil data harga 2 tahun terakhir, lalu mensimulasikan: <i>"seandainya dulu saya membeli setiap kali skor screener tinggi, hasilnya untung atau rugi?"</i> Tidak ada uang sungguhan yang terlibat.</p>
+    <p style="margin:4px 0 10px">Backtest = <b>uji coba di masa lalu</b>. Halaman ini mensimulasikan: <i>"seandainya dulu saya bertindak setiap kali aturan ini muncul, hasilnya untung atau rugi?"</i> Tidak ada uang sungguhan yang terlibat.</p>
+    <b>Dua jenis uji</b>
+    <ul style="margin:6px 0 10px">
+      <li><b>Swing / Trading:</b> menguji skor screener (BUY vs semua sinyal).</li>
+      <li><b>Volume spike:</b> setelah pola volume tertentu muncul, bagaimana hasil 1, 5, dan 10 hari berikutnya?</li>
+      <li><b>MACD + volume:</b> apakah persilangan MACD yang disertai volume tinggi lebih baik daripada persilangan MACD saja, volume tinggi saja, atau hari acak?</li>
+    </ul>
     <b>Cara pakai (sekitar 3 menit)</b>
     <ol style="margin:6px 0 0;padding-left:20px">
-      <li>Biarkan semua pengaturan di bawah apa adanya.</li>
-      <li>Tekan tombol hijau <b>Jalankan backtest</b>.</li>
-      <li>Tunggu 1-3 menit sampai muncul tabel. Lihat baris yang <b>disorot hijau</b> (BUY), lalu bandingkan dengan baris paling atas ("Semua sinyal").</li>
+      <li>Pilih mode, biarkan sisanya apa adanya.</li>
+      <li>Tekan <b>Jalankan backtest</b> dan tunggu 1-3 menit.</li>
+      <li>Lihat tabel utama, lalu tabel kedua yang memecah hasil menurut <b>kondisi pasar</b> dan <b>RS</b>.</li>
     </ol>
   </div>
 
   <div class="card">
     <div class="grid">
-      <div><label>Mode</label><select id="mode"><option value="swing">Swing (tahan maks. 10 hari)</option><option value="trading">Trading (besoknya, 1 hari)</option></select></div>
+      <div><label>Mode</label><select id="mode"><option value="swing">Swing (tahan maks. 10 hari)</option><option value="trading">Trading (besoknya, 1 hari)</option><option value="volume">Volume spike (tahan 1, 5, 10 hari)</option><option value="macd">MACD + volume (uji kombinasi)</option></select></div>
       <div><label>Jumlah saham acak (Papan Utama)</label><input id="n" type="number" value="60" min="5" max="150"></div>
-      <div><label>Ambang BUY (skor ≥)</label><input id="thr" type="number" value="70" min="10" max="100"></div>
+      <div id="thrwrap"><label>Ambang BUY (skor ≥)</label><input id="thr" type="number" value="70" min="10" max="100"></div>
+      <div id="patwrap" style="display:none"><label id="patlabel">Pola yang dirinci</label><select id="vpat"><option>Spike naik</option><option>Spike naik, ditutup lemah</option><option>Spike turun</option><option>Spike netral</option><option>Naik bertahap</option><option>Mengering</option></select></div>
+      <div id="vtwrap" style="display:none"><label>Ambang rasio volume (×)</label><input id="vt" type="number" value="1.5" step="0.1" min="1" max="5"></div>
       <div><label>Biaya pulang-pergi (%)</label><input id="fee" type="number" value="0.35" step="0.05" min="0"></div>
+      <div><label>Filter kondisi pasar (tabel utama)</label><select id="fbull"><option value="all">Semua kondisi</option><option value="bull">Hanya saat IHSG di atas SMA50</option><option value="bear">Hanya saat IHSG di bawah SMA50</option></select></div>
+      <div><label>Filter RS 1 bulan (tabel utama)</label><select id="frs"><option value="all">Semua</option><option value="pos">Hanya RS positif</option><option value="neg">Hanya RS negatif atau nol</option></select></div>
     </div>
     <div style="margin-top:10px"><label>Atau isi kode manual (pisahkan koma; mengabaikan jumlah acak)</label><textarea id="manual" placeholder="BBCA, BBRI, TLKM"></textarea></div>
     <button id="run">Jalankan backtest</button>
@@ -57,18 +68,24 @@
     <div id="verdict"></div>
     <div class="scroll" style="margin-top:10px"><table id="tbl"></table></div>
     <div id="half" class="note" style="margin-top:10px"></div>
+    <h3 id="t2title"></h3>
+    <div class="scroll"><table id="tbl2"></table></div>
+    <div id="t2note" class="note" style="margin-top:8px"></div>
   </div>
 
   <div class="card">
     <b>Cara membaca &amp; keterbatasan</b>
     <ul class="note">
-      <li><b>Entry</b> di harga buka hari berikutnya setelah sinyal. SL/TP memakai level yang sama dengan tabel utama. Jika SL dan TP tersentuh di hari yang sama, dianggap SL lebih dulu (konservatif). Sinyal yang gap melewati SL/TP dilewati.</li>
-      <li><b>Setiap sinyal dihitung terpisah</b>, bukan simulasi portofolio, jadi sinyal beruntun pada saham yang sama saling tumpang-tindih.</li>
-      <li><b>Hanya saham yang tercatat sekarang.</b> Saham yang sudah delisting tidak ada, sehingga hasil cenderung lebih bagus dari kenyataan (survivorship bias).</li>
-      <li><b>Aturan skor dirancang lalu diuji pada data yang sama</b> (in-sample). Bandingkan paruh pertama dan kedua, dan hati-hati dengan jumlah sinyal yang sedikit.</li>
-      <li><b>Mode Trading</b> diuji sebagai "sinyal di penutupan, trade besoknya". Di layar utama sinyalnya muncul saat sesi berjalan, jadi tidak persis sama.</li>
-      <li><b>Scalping tidak bisa diuji</b> di sini: data 5 menit dari Yahoo hanya sekitar 60 hari dan tertunda.</li>
-      <li>Hasil masa lalu tidak menjamin masa depan. Bukan saran investasi.</li>
+      <li><b>Mode MACD + volume:</b> MACD standar 12-26-9. Sinyal = garis MACD memotong garis sinyal dari bawah ke atas. "Volume tinggi" = rasio volume pada hari persilangan atau sehari sebelumnya mencapai ambang (default 1,5×). Entry di harga buka besok tanpa SL/TP: yang dilihat adalah rata-rata return 1, 5, dan 10 hari setelah biaya. Kelompok saling tumpang-tindih, dan makin banyak syarat makin sedikit sinyalnya.</li>
+      <li><b>RS (Relative Strength)</b> = return saham 20 hari bursa dikurangi return IHSG pada periode yang sama, dalam poin. Positif berarti lebih kuat dari pasar. <b>Bukan RSI</b> (indikator momentum yang berbeda).</li>
+      <li><b>Kondisi pasar</b> = IHSG di atas atau di bawah rata-rata 50 harinya (SMA50) pada hari sinyal, hanya memakai data sampai hari itu.</li>
+      <li><b>Pembanding</b> pada tabel kedua = rata-rata semua sinyal atau hari pada kondisi yang sama. Yang penting adalah <b>selisih</b>-nya, bukan angka mentah, karena pasar yang naik membuat semua saham tampak bagus.</li>
+      <li><b>Entry</b> di harga buka hari berikutnya. Mode Swing/Trading memakai SL/TP yang sama dengan layar utama (SL dianggap lebih dulu bila keduanya tersentuh hari itu). Mode Volume tidak memakai SL/TP: murni beli di buka besok, jual di penutupan hari ke-1, ke-5, atau ke-10.</li>
+      <li><b>Setiap sinyal dihitung terpisah</b> dan sinyal beruntun pada saham yang sama saling tumpang-tindih, jadi jumlah efektifnya lebih kecil dari angka yang tampil. Kelompok dengan kurang dari 30 sinyal bertanda ⚠ dan jangan dipercaya.</li>
+      <li><b>Hanya saham yang tercatat sekarang.</b> Saham yang sudah delisting tidak ikut, sehingga hasil cenderung lebih bagus dari kenyataan (survivorship bias).</li>
+      <li><b>Aturan dirancang lalu diuji pada data yang sama</b> (in-sample). Bandingkan paruh pertama dan kedua.</li>
+      <li><b>Pola volume</b> adalah pembacaan sederhana dari volume, arah harga, dan posisi penutupan, bukan bukti akumulasi oleh bandar. Mode Trading diuji sebagai "sinyal di penutupan, trade besoknya".</li>
+      <li><b>Scalping tidak bisa diuji</b> di sini (data 5 menit Yahoo hanya sekitar 60 hari dan tertunda). Hasil masa lalu tidak menjamin masa depan. Bukan saran investasi.</li>
     </ul>
   </div>
 </main>
@@ -77,7 +94,7 @@
   const API_URL_FIXED='';
   const API_URL=(API_URL_FIXED||(()=>{try{return localStorage.getItem('ruang-bursa-api-v1')||''}catch(e){return''}})()).trim().replace(/\/+$/,'');
 
-  // ===== ATURAN SKOR — harus sama dengan worker.js (fungsi daily & levels). Jika diubah di sana, ubah di sini juga =====
+  // ===== ATURAN SKOR & POLA VOLUME — harus sama dengan worker.js (daily, levels, volumeStats). Jika diubah di sana, ubah di sini juga =====
   const tick=p=>p<200?1:p<500?2:p<2000?5:p<5000?10:25;
   const rnd=(x,t)=>Math.round(x/t)*t;
   const sma=(a,n)=>a.length>=n?a.slice(-n).reduce((x,y)=>x+y,0)/n:null;
@@ -109,8 +126,36 @@
     }
     return{score,lv:levels(price,rawStop)};
   }
+  // Pola volume pada candle ke-i (sama dengan volumeStats di worker.js)
+  function volPattern(cs,i){
+    if(i<25)return null;
+    const days=[];
+    for(let j=i-4;j<=i;j++){const x=cs[j],base=sma(cs.slice(j-20,j).map(y=>y.v),20),rg=x.h-x.l;days.push({vx:base?x.v/base:null,chg:(x.c/cs[j-1].c-1)*100,pos:rg>0?(x.c-x.l)/rg:0.5})}
+    const L=days[4],vxs=days.map(d=>d.vx);let pattern='Normal';
+    if(L.vx!=null&&L.vx>=2){
+      if(L.chg>=1&&L.pos>=0.4)pattern='Spike naik';else if(L.chg>=1)pattern='Spike naik, ditutup lemah';else if(L.chg<=-1)pattern='Spike turun';else pattern='Spike netral';
+    }else if(vxs.slice(2).every(v=>v!=null&&v<0.6))pattern='Mengering';
+    else if(vxs[2]!=null&&vxs[3]!=null&&vxs[4]!=null&&vxs[2]<vxs[3]&&vxs[3]<vxs[4]&&vxs[4]>=1.2)pattern='Naik bertahap';
+    return{pattern,vx:L.vx};
+  }
 
-  // ===== SIMULASI SATU SINYAL =====
+  // ===== KONDISI PASAR (IHSG) & RS =====
+  const dkey=t=>new Date((t+25200)*1000).toISOString().slice(0,10);
+  function prepIhsg(cs){
+    const c=cs.map(x=>x.c),m=new Map();
+    cs.forEach((x,k)=>{
+      const s50=k>=49?c.slice(k-49,k+1).reduce((a,b)=>a+b,0)/50:null;
+      m.set(dkey(x.t),{bull:s50==null?null:c[k]>s50,r20:k>=20?(c[k]/c[k-20]-1)*100:null});
+    });
+    return m;
+  }
+  function ctx(cs,i,ix){
+    const d=ix&&ix.get(dkey(cs[i].t));let rs=null;
+    if(d&&d.r20!=null&&i>=20)rs=Math.round(((cs[i].c/cs[i-20].c-1)*100-d.r20)*10)/10;
+    return{bull:d?d.bull:null,rs};
+  }
+
+  // ===== SIMULASI =====
   function simulate(cs,i,H,lv,fee){
     if(!lv||i+H>=cs.length)return null;
     const entry=cs[i+1].o;
@@ -127,25 +172,75 @@
     const net=(exit/entry-1)*100-fee,riskPct=(entry-lv.stop)/entry*100;
     return{net,R:net/riskPct,why};
   }
-  function runSymbol(cs,mode,fee){
+  function runSymbol(cs,mode,fee,ix){
     const H=mode==='swing'?10:1,out=[];
     for(let i=25;i<cs.length-H-1;i++){
       const e=evalAt(cs.slice(0,i+1),mode);if(!e)continue;
-      const r=simulate(cs,i,H,e.lv,fee);if(r)out.push({score:e.score,t:cs[i].t,...r});
+      const r=simulate(cs,i,H,e.lv,fee);if(r)out.push({score:e.score,t:cs[i].t,...ctx(cs,i,ix),...r});
+    }
+    return out;
+  }
+  function runVolume(cs,fee,ix){
+    const out=[];
+    for(let i=25;i<cs.length-10;i++){
+      const p=volPattern(cs,i),e=cs[i+1].o;if(!p||!(e>0))continue;
+      const f=h=>(cs[i+h].c/e-1)*100-fee;
+      out.push({pattern:p.pattern,vx:p.vx,t:cs[i].t,...ctx(cs,i,ix),f1:f(1),f5:f(5),f10:f(10)});
     }
     return out;
   }
 
+
+  // ===== MACD (12-26-9) + VOLUME =====
+  function emaArr(a,n){const k=2/(n+1),o=[];let e=a[0];for(let i=0;i<a.length;i++){e=i===0?a[0]:a[i]*k+e*(1-k);o.push(e)}return o}
+  function vxArr(cs){ // rasio volume hari ke-i terhadap rata-rata 20 hari SEBELUMNYA
+    const v=new Array(cs.length).fill(null);let sum=0;
+    for(let i=0;i<cs.length;i++){if(i>=20){const b=sum/20;v[i]=b?cs[i].v/b:null}sum+=cs[i].v;if(i>=20)sum-=cs[i-20].v}
+    return v;
+  }
+  function runMacd(cs,fee,ix,vt){
+    const n=cs.length,c=cs.map(x=>x.c),e12=emaArr(c,12),e26=emaArr(c,26),m=c.map((_,i)=>e12[i]-e26[i]),sg=emaArr(m,9),vx=vxArr(cs),out=[];
+    for(let i=60;i<n-10;i++){ // mulai dari 60 agar EMA sudah "hangat"
+      const e=cs[i+1].o;if(!(e>0))continue;
+      const rg=cs[i].h-cs[i].l,pos=rg>0?(cs[i].c-cs[i].l)/rg:0.5,f=h=>(cs[i+h].c/e-1)*100-fee;
+      out.push({cross:m[i-1]<=sg[i-1]&&m[i]>sg[i],volhi:Math.max(vx[i]||0,vx[i-1]||0)>=vt,voli:(vx[i]||0)>=vt,strong:cs[i].c>cs[i-1].c&&pos>=0.5,
+        t:cs[i].t,...ctx(cs,i,ix),f1:f(1),f5:f(5),f10:f(10)});
+    }
+    return out;
+  }
+  const MG=[['Semua hari (pembanding)',()=>true],['MACD cross naik saja',x=>x.cross],['MACD cross + volume tinggi',x=>x.cross&&x.volhi],
+    ['MACD cross + volume tinggi + ditutup kuat',x=>x.cross&&x.volhi&&x.strong],['MACD cross tanpa volume tinggi',x=>x.cross&&!x.volhi],['Volume tinggi saja (tanpa cross)',x=>x.voli&&!x.cross]];
+
   // ===== STATISTIK =====
+  const mean=(a,k)=>a.reduce((s,x)=>s+x[k],0)/a.length;
   function stats(a){
     if(!a.length)return null;
     const n=a.length,w=a.filter(x=>x.net>0),l=a.filter(x=>x.net<=0);
     const gw=w.reduce((s,x)=>s+x.net,0),gl=-l.reduce((s,x)=>s+x.net,0);
     const pc=k=>a.filter(x=>x.why===k).length/n*100;
-    return{n,win:w.length/n*100,avg:a.reduce((s,x)=>s+x.net,0)/n,R:a.reduce((s,x)=>s+x.R,0)/n,pf:gl>0?gw/gl:null,tp:pc('TP'),sl:pc('SL'),tm:pc('waktu')};
+    return{n,win:w.length/n*100,avg:mean(a,'net'),R:mean(a,'R'),pf:gl>0?gw/gl:null,tp:pc('TP'),sl:pc('SL'),tm:pc('waktu')};
   }
-  const f1=(x,d=2)=>x==null?'—':x.toFixed(d).replace('.',',');
+  const vstats=a=>a.length?{n:a.length,a1:mean(a,'f1'),a5:mean(a,'f5'),a10:mean(a,'f10'),w5:a.filter(x=>x.f5>0).length/a.length*100}:null;
+  const f1=(x,d=2)=>x==null||!isFinite(x)?'—':x.toFixed(d).replace('.',',');
   const cls=x=>x==null?'':x>0?'pos':'neg';
+  const passF=(x,fb,fr)=>(fb==='all'||(fb==='bull'?x.bull===true:x.bull===false))&&(fr==='all'||(fr==='pos'?(x.rs!=null&&x.rs>0):(x.rs!=null&&x.rs<=0)));
+  const COND=[['Semua kondisi',()=>true],['IHSG di atas SMA50',x=>x.bull===true],['IHSG di bawah SMA50',x=>x.bull===false],
+    ['RS positif (lebih kuat dari IHSG)',x=>x.rs!=null&&x.rs>0],['RS negatif atau nol',x=>x.rs!=null&&x.rs<=0],['IHSG di atas SMA50 dan RS positif',x=>x.bull===true&&x.rs!=null&&x.rs>0]];
+  // Tabel pemecahan: hasil kelompok terpilih vs pembanding (semua) pada kondisi yang sama
+  function condTable(allRecs,selRecs,key){
+    let h='<thead><tr><th>Kondisi</th><th>Sinyal terpilih</th><th>Rata² terpilih</th><th>Rata² pembanding</th><th>Selisih (poin)</th></tr></thead><tbody>';
+    COND.forEach(([name,f])=>{
+      const a=selRecs.filter(f),b=allRecs.filter(f);
+      if(!a.length){h+=`<tr><td>${name}</td><td>0</td><td colspan="3" style="text-align:right;color:#9aa5ab">tidak ada sinyal</td></tr>`;return}
+      const ma=mean(a,key),mb=b.length?mean(b,key):null,d=mb==null?null:ma-mb;
+      h+=`<tr><td>${name}</td><td>${a.length}${a.length<30?' ⚠':''}</td><td class="${cls(ma)}">${f1(ma)}%</td><td>${f1(mb)}%</td><td class="${cls(d)}">${d==null?'—':(d>=0?'+':'')+f1(d)}</td></tr>`;
+    });
+    return h+'</tbody>';
+  }
+  const halves=(a,key)=>{
+    const t=a.map(x=>x.t).sort((x,y)=>x-y),mid=t[Math.floor(t.length/2)]||0,p=a.filter(x=>x.t<=mid),q=a.filter(x=>x.t>mid);
+    return p.length&&q.length?`Konsistensi: paruh pertama ${f1(mean(p,key))}% (${p.length} sinyal) · paruh kedua ${f1(mean(q,key))}% (${q.length} sinyal). Kalau tandanya berbeda, hasilnya belum stabil.`:'';
+  };
 
   // ===== UI =====
   const $=id=>document.getElementById(id);
@@ -160,9 +255,17 @@
     (res.timestamp||[]).forEach((t,i)=>{if(q.open[i]!=null&&q.high[i]!=null&&q.low[i]!=null&&q.close[i]!=null)cs.push({t,o:q.open[i],h:q.high[i],l:q.low[i],c:q.close[i],v:q.volume[i]||0})});
     return cs;
   }
+  const VPATS=['Spike naik','Spike naik, ditutup lemah','Spike turun','Spike netral','Naik bertahap','Mengering','Normal'];
+  function modeUi(){
+    const md=$('mode').value,vm=md==='volume'||md==='macd';
+    $('patwrap').style.display=vm?'':'none';$('thrwrap').style.display=vm?'none':'';$('vtwrap').style.display=md==='macd'?'':'none';
+    if(md==='macd'){$('patlabel').textContent='Kelompok yang dirinci';$('vpat').innerHTML=MG.slice(1).map((g,i)=>`<option${i===1?' selected':''}>${g[0]}</option>`).join('')}
+    else if(md==='volume'){$('patlabel').textContent='Pola yang dirinci';$('vpat').innerHTML=VPATS.map(p=>`<option>${p}</option>`).join('')}
+  }
+  $('mode').addEventListener('change',modeUi);
   async function run(){
     if(!API_URL){$('status').textContent='Worker belum terhubung. Buka halaman utama dan tekan Hubungkan Worker dulu.';return}
-    const mode=$('mode').value,thr=+$('thr').value,fee=+$('fee').value||0;
+    const mode=$('mode').value,fee=+$('fee').value||0;
     $('run').disabled=true;$('out').style.display='none';
     try{
       let codes=$('manual').value.toUpperCase().split(/[^A-Z]+/).filter(c=>c.length===4);
@@ -171,35 +274,84 @@
         for(let i=all.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[all[i],all[j]]=[all[j],all[i]]}
         codes=all.slice(0,Math.min(+$('n').value||60,150));
       }
+      $('status').textContent='Memuat data IHSG…';
+      let ix=null;try{ix=prepIhsg(await fetchCandles('IHSG'))}catch(e){ix=null}
       const all=[];let done=0,fail=0,idx=0;
       const worker=async()=>{while(idx<codes.length){const c=codes[idx++];
-        try{const cs=await fetchCandles(c);all.push(...runSymbol(cs,mode,fee))}catch(e){fail++}
+        try{const cs=await fetchCandles(c);const r=mode==='volume'?runVolume(cs,fee,ix):mode==='macd'?runMacd(cs,fee,ix,+$('vt').value||1.5):runSymbol(cs,mode,fee,ix);for(const x of r)all.push(x)}catch(e){fail++}
         done++;$('status').textContent=`Memproses ${done}/${codes.length} saham…`;
         await new Promise(r=>setTimeout(r));}};
       await Promise.all([worker(),worker(),worker()]);
-      show(all,mode,thr,codes.length-fail,fail);
+      $('status').textContent=`Selesai: ${codes.length-fail} saham diproses${fail?`, ${fail} gagal dimuat`:''}${ix?'':'. Data IHSG gagal dimuat, jadi filter pasar dan RS tidak tersedia'}.`;
+      mode==='volume'?showVol(all):mode==='macd'?showMacd(all):showScore(all,+$('thr').value);
     }catch(e){$('status').textContent='Gagal: '+e.message}
     $('run').disabled=false;
   }
-  function show(all,mode,thr,ok,fail){
-    $('status').textContent=`Selesai: ${ok} saham diproses${fail?`, ${fail} gagal dimuat`:''}.`;
-    const rows=[['Semua sinyal (pembanding)',all],['Skor < 30',all.filter(x=>x.score<30)],['Skor 30–69',all.filter(x=>x.score>=30&&x.score<70)],
-      ['Skor 70–79',all.filter(x=>x.score>=70&&x.score<80)],['Skor 80–89',all.filter(x=>x.score>=80&&x.score<90)],['Skor ≥ 90',all.filter(x=>x.score>=90)]];
-    const buy=all.filter(x=>x.score>=thr);rows.push([`BUY (skor ≥ ${thr})`,buy]);
+  function showScore(all,thr){
+    const fb=$('fbull').value,fr=$('frs').value,fa=all.filter(x=>passF(x,fb,fr));
+    const rows=[['Semua sinyal (pembanding)',fa],['Skor < 30',fa.filter(x=>x.score<30)],['Skor 30–69',fa.filter(x=>x.score>=30&&x.score<70)],
+      ['Skor 70–79',fa.filter(x=>x.score>=70&&x.score<80)],['Skor 80–89',fa.filter(x=>x.score>=80&&x.score<90)],['Skor ≥ 90',fa.filter(x=>x.score>=90)]];
+    const buy=fa.filter(x=>x.score>=thr);rows.push([`BUY (skor ≥ ${thr})`,buy]);
     let h='<thead><tr><th>Kelompok</th><th>Sinyal</th><th>Menang</th><th>Rata² bersih</th><th>Rata² R</th><th>Profit factor</th><th>TP / SL / waktu</th></tr></thead><tbody>';
     rows.forEach(([name,a],i)=>{const s=stats(a);
       h+=s?`<tr class="${i===rows.length-1?'hl':''}"><td>${name}</td><td>${s.n}</td><td>${f1(s.win,1)}%</td><td class="${cls(s.avg)}">${f1(s.avg)}%</td><td class="${cls(s.R)}">${f1(s.R)}</td><td>${f1(s.pf)}</td><td>${Math.round(s.tp)}% / ${Math.round(s.sl)}% / ${Math.round(s.tm)}%</td></tr>`:`<tr><td>${name}</td><td colspan="6" style="text-align:left;color:#9aa5ab">tidak ada sinyal</td></tr>`});
     $('tbl').innerHTML=h+'</tbody>';
-    const sb=stats(buy),sa=stats(all);let v;
-    if(!sb||sb.n<30)v='<b>Sinyal BUY terlalu sedikit untuk disimpulkan</b> (kurang dari 30). Tambah jumlah saham atau turunkan ambang.';
+    const sb=stats(buy),sa=stats(fa);let v;
+    if(!sb||sb.n<30)v='<b>Sinyal BUY terlalu sedikit untuk disimpulkan</b> (kurang dari 30). Tambah jumlah saham, turunkan ambang, atau longgarkan filter.';
     else{const d=sb.avg-sa.avg;
       v=`Dari <b>${sb.n}</b> sinyal BUY, <b>${f1(sb.win,0)}%</b> berakhir untung.<br><b>BUY rata-rata ${f1(sb.avg)}% per sinyal (setelah biaya) vs ${f1(sa.avg)}% untuk semua sinyal.</b> Selisih ${d>=0?'+':''}${f1(d)} poin. `+
         (sb.n<100?'Sampel masih kecil (<100), anggap sebagai petunjuk awal saja. ':'')+
         (d>0.15&&sb.avg>0?'Ada indikasi keunggulan pada data ini, tetapi belum teruji di luar sampel.':d>0.15?'Lebih baik dari pembanding, tetapi masih rugi setelah biaya.':'Belum terlihat keunggulan dibanding sinyal acak pada data ini.');}
     $('verdict').innerHTML=v;
-    const sorted=buy.map(x=>x.t).sort((a,b)=>a-b),mid=sorted[Math.floor(sorted.length/2)]||0;
-    const a1=stats(buy.filter(x=>x.t<=mid)),a2=stats(buy.filter(x=>x.t>mid));
-    $('half').innerHTML=a1&&a2?`Konsistensi BUY: paruh pertama ${f1(a1.avg)}% (${a1.n} sinyal) · paruh kedua ${f1(a2.avg)}% (${a2.n} sinyal). Kalau tandanya berbeda, hasilnya belum stabil.`:'';
+    $('half').textContent=buy.length?halves(buy,'net'):'';
+    $('t2title').textContent='BUY menurut kondisi pasar dan RS (rata² bersih per sinyal)';
+    $('tbl2').innerHTML=condTable(all,all.filter(x=>x.score>=thr),'net');
+    $('t2note').textContent='Pembanding = semua sinyal pada kondisi yang sama. Selisih positif yang konsisten di banyak kondisi menandakan skor memang membantu; selisih nol atau negatif berarti tidak. Baris bertanda ⚠ punya kurang dari 30 sinyal.';
+    $('out').style.display='';
+  }
+  function showVol(all){
+    const fb=$('fbull').value,fr=$('frs').value,fa=all.filter(x=>passF(x,fb,fr)),chosen=$('vpat').value;
+    const PATS=['Spike naik','Spike naik, ditutup lemah','Spike turun','Spike netral','Naik bertahap','Mengering','Normal'];
+    const rows=[['Semua hari (pembanding)',fa],...PATS.map(p=>[p,fa.filter(x=>x.pattern===p)])];
+    let h='<thead><tr><th>Pola volume</th><th>Sinyal</th><th>Rata² 1 hari</th><th>Rata² 5 hari</th><th>Rata² 10 hari</th><th>Menang (5 hari)</th></tr></thead><tbody>';
+    rows.forEach(([name,a])=>{const s=vstats(a);
+      h+=s?`<tr class="${name===chosen?'hl':''}"><td>${name}${s.n<30?' ⚠':''}</td><td>${s.n}</td><td class="${cls(s.a1)}">${f1(s.a1)}%</td><td class="${cls(s.a5)}">${f1(s.a5)}%</td><td class="${cls(s.a10)}">${f1(s.a10)}%</td><td>${f1(s.w5,1)}%</td></tr>`:`<tr><td>${name}</td><td colspan="5" style="text-align:left;color:#9aa5ab">tidak ada sinyal</td></tr>`});
+    $('tbl').innerHTML=h+'</tbody>';
+    const sel=fa.filter(x=>x.pattern===chosen),s=vstats(sel),b=vstats(fa);let v;
+    if(!s||s.n<30)v=`<b>Pola "${chosen}" terlalu sedikit untuk disimpulkan</b> (kurang dari 30). Tambah jumlah saham atau longgarkan filter.`;
+    else{const d=s.a5-b.a5;
+      v=`Pola <b>${chosen}</b>: <b>${s.n}</b> sinyal, rata-rata <b>${f1(s.a5)}%</b> dalam 5 hari (setelah biaya) vs <b>${f1(b.a5)}%</b> untuk semua hari. Selisih ${d>=0?'+':''}${f1(d)} poin. `+
+        (s.n<100?'Sampel masih kecil (<100), anggap sebagai petunjuk awal saja. ':'')+
+        (d>0.3&&s.a5>0?'Ada indikasi lebih baik dari hari acak pada data ini, tetapi belum teruji di luar sampel.':d>0.3?'Lebih baik dari hari acak, tetapi masih rugi setelah biaya.':'Belum terlihat keunggulan dibanding hari acak pada data ini.');}
+    $('verdict').innerHTML=v;
+    $('half').textContent=sel.length?halves(sel,'f5'):'';
+    $('t2title').textContent=`Pola "${chosen}" menurut kondisi pasar dan RS (rata² 5 hari)`;
+    $('tbl2').innerHTML=condTable(all,all.filter(x=>x.pattern===chosen),'f5');
+    $('t2note').textContent='Pembanding = semua hari pada kondisi yang sama. Kalau spike volume memang mendahului kenaikan, selisihnya harus positif dan konsisten, terutama di kondisi yang sama-sama dibandingkan. Baris bertanda ⚠ punya kurang dari 30 sinyal.';
+    $('out').style.display='';
+  }
+
+  function showMacd(all){
+    const fb=$('fbull').value,fr=$('frs').value,fa=all.filter(x=>passF(x,fb,fr)),chosen=$('vpat').value,vt=+$('vt').value||1.5;
+    let h='<thead><tr><th>Kelompok</th><th>Sinyal</th><th>Rata² 1 hari</th><th>Rata² 5 hari</th><th>Rata² 10 hari</th><th>Menang (5 hari)</th></tr></thead><tbody>';
+    MG.forEach(([name,f])=>{const s=vstats(fa.filter(f));
+      h+=s?`<tr class="${name===chosen?'hl':''}"><td>${name}${s.n<30?' ⚠':''}</td><td>${s.n}</td><td class="${cls(s.a1)}">${f1(s.a1)}%</td><td class="${cls(s.a5)}">${f1(s.a5)}%</td><td class="${cls(s.a10)}">${f1(s.a10)}%</td><td>${f1(s.w5,1)}%</td></tr>`:`<tr><td>${name}</td><td colspan="5" style="text-align:left;color:#9aa5ab">tidak ada sinyal</td></tr>`});
+    $('tbl').innerHTML=h+'</tbody>';
+    const cg=MG.find(g=>g[0]===chosen)||MG[2],sel=fa.filter(cg[1]),s=vstats(sel),b=vstats(fa);let v;
+    if(!s||s.n<30)v=`<b>Kelompok "${cg[0]}" terlalu sedikit untuk disimpulkan</b> (kurang dari 30). Tambah jumlah saham, turunkan ambang volume, atau longgarkan filter.`;
+    else{const d=s.a5-b.a5;
+      v=`<b>${cg[0]}</b>: <b>${s.n}</b> sinyal, rata-rata <b>${f1(s.a5)}%</b> dalam 5 hari (setelah biaya) vs <b>${f1(b.a5)}%</b> untuk semua hari. Selisih ${d>=0?'+':''}${f1(d)} poin. `+
+        (s.n<100?'Sampel masih kecil (<100), anggap sebagai petunjuk awal saja. ':'')+
+        (d>0.3&&s.a5>0?'Ada indikasi lebih baik dari hari acak pada data ini, tetapi belum teruji di luar sampel.':d>0.3?'Lebih baik dari hari acak, tetapi masih rugi setelah biaya.':'Belum terlihat keunggulan dibanding hari acak pada data ini.');
+    }
+    const c=vstats(fa.filter(MG[1][1])),cv=vstats(fa.filter(MG[2][1]));
+    if(c&&cv&&c.n>=30&&cv.n>=30){const d=cv.a5-c.a5;
+      v+=`<br><b>Efek menambah syarat volume (≥${f1(vt,1)}×) pada persilangan MACD:</b> ${f1(cv.a5)}% (${cv.n} sinyal) vs ${f1(c.a5)}% (${c.n} sinyal) dalam 5 hari, selisih ${d>=0?'+':''}${f1(d)} poin. `+(d>0.3?'Volume tampak menambah nilai pada data ini.':'Volume belum terlihat menambah nilai pada data ini.')}
+    $('verdict').innerHTML=v;
+    $('half').textContent=sel.length?halves(sel,'f5'):'';
+    $('t2title').textContent=`"${cg[0]}" menurut kondisi pasar dan RS (rata² 5 hari)`;
+    $('tbl2').innerHTML=condTable(all,all.filter(cg[1]),'f5');
+    $('t2note').textContent='Pembanding = semua hari pada kondisi yang sama. Kelompok saling tumpang-tindih (satu hari bisa masuk beberapa kelompok). Baris bertanda ⚠ berisi kurang dari 30 sinyal, jangan dipercaya.';
     $('out').style.display='';
   }
   $('run').onclick=run;
