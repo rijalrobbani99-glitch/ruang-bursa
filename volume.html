@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Screener Volume — Ruang Bursa</title>
+<style>
+  :root{--g:#13856b;--line:#e3e8ea;--mut:#6c7a82;--bg:#f5f7f8;--red:#c0484d}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:#18242e;font:14px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+  main{max-width:1060px;margin:auto;padding:20px 14px 48px}
+  h1{font-size:22px;margin:0 0 4px}.sub{color:var(--mut);margin:0 0 14px;font-size:13px}a{color:var(--g)}
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+  label{display:block;font-size:11px;color:var(--mut);margin-bottom:3px}
+  select,input{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;font:inherit;background:#fff}
+  button{background:var(--g);color:#fff;border:0;border-radius:8px;padding:9px 16px;font:inherit;font-weight:600;cursor:pointer}
+  button:disabled{opacity:.5}.bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px}
+  .mut{color:var(--mut)}.note{font-size:12px;color:var(--mut)}
+  .scroll{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:12px;min-width:820px}
+  th,td{padding:8px 10px;border-bottom:1px solid #eef1f2;text-align:right;vertical-align:middle}
+  th:first-child,td:first-child,th.l,td.l{text-align:left}th{color:var(--mut);font-weight:600;font-size:11px;white-space:nowrap}
+  tr.r{cursor:pointer}tr.r:hover td{background:#fafcfc}.sm{font-size:11px;color:var(--mut);font-weight:400}
+  .pos{color:#1b8a5a}.neg{color:var(--red)}
+  .chip{display:inline-block;font-size:11px;padding:2px 9px;border-radius:99px;font-weight:600;white-space:nowrap}
+  .chip.up{background:#e4f4ec;color:#17794f}.chip.down{background:#faeaea;color:#a2403f}.chip.warn{background:#fff1d9;color:#935f10}.chip.mix{background:#eef1f2;color:#52616a}
+  tr.det td{background:#f8fafa;text-align:left;padding:10px 14px}
+  .dt{display:grid;grid-template-columns:repeat(4,minmax(80px,auto));gap:4px 18px;max-width:520px;margin-top:6px}.dt b{font-weight:600;color:var(--mut);font-size:11px}
+  ul{margin:6px 0 0;padding-left:18px}li{margin-bottom:3px}
+</style>
+</head>
+<body>
+<main>
+  <h1>Screener volume</h1>
+  <p class="sub">Cari saham dengan lonjakan atau pola volume tidak biasa dalam 5 hari terakhir. <a href="index.html">← Screener utama</a></p>
+
+  <div class="card" id="notice" style="display:none;background:#fff4de;border-color:#f1deb4"></div>
+
+  <div class="card">
+    <div class="grid">
+      <div><label>Daftar saham yang dimuat</label><select id="uni"></select></div>
+      <div><label>Cari kode atau nama</label><input id="q" placeholder="mis. BBCA"></div>
+      <div><label>Pola volume</label><select id="pat">
+        <option value="all">Semua pola</option><option>Spike naik</option><option>Spike naik, ditutup lemah</option><option>Spike turun</option><option>Spike netral</option><option>Naik bertahap</option><option>Mengering</option><option>Normal</option></select></div>
+      <div><label>Rasio volume hari ini minimal</label><select id="vmin"><option value="0">Semua</option><option value="1.5">≥ 1,5×</option><option value="2">≥ 2×</option><option value="3">≥ 3×</option><option value="5">≥ 5×</option></select></div>
+      <div><label>Nilai transaksi minimal</label><select id="liq"><option value="0">Semua</option><option value="1000000000" selected>≥ Rp1 miliar</option><option value="5000000000">≥ Rp5 miliar</option><option value="10000000000">≥ Rp10 miliar</option><option value="50000000000">≥ Rp50 miliar</option></select></div>
+      <div><label>Harga minimal</label><select id="pmin"><option value="0">Semua</option><option value="100" selected>≥ Rp100</option><option value="200">≥ Rp200</option><option value="500">≥ Rp500</option></select></div>
+      <div><label>Urutkan</label><select id="sort"><option value="vx">Rasio volume hari ini</option><option value="v5">Rata² rasio 5 hari</option><option value="val">Nilai transaksi</option><option value="chgd">Kenaikan harga terbesar</option><option value="chga">Penurunan harga terbesar</option></select></div>
+    </div>
+    <div class="bar"><button id="load">Muat ulang data</button><span class="note" id="status"></span></div>
+  </div>
+
+  <div class="card scroll">
+    <table>
+      <thead><tr><th>Saham</th><th>Harga</th><th>Perubahan</th><th>Volume hari ini</th><th>Rasio vs rata² 20 hari</th><th class="l">5 hari terakhir</th><th class="l">Pola</th></tr></thead>
+      <tbody id="body"></tbody>
+    </table>
+    <div class="note" id="count" style="margin-top:8px"></div>
+  </div>
+
+  <div class="card">
+    <b>Cara membaca</b>
+    <ul class="note">
+      <li><b>Rasio volume</b> = volume hari itu dibagi rata-rata volume 20 hari sebelumnya. 2× berarti dua kali lebih ramai dari biasanya. Volume ditampilkan dalam lot (1 lot = 100 lembar).</li>
+      <li><b>Batang 5 hari</b> menunjukkan rasio tiap hari (paling kiri = 4 hari lalu, paling kanan = terakhir). Hijau berarti harga naik hari itu, merah turun. Garis abu-abu = rasio 1×. Klik baris untuk melihat angka tiap hari.</li>
+      <li><b>Pola</b> adalah pembacaan sederhana dari rasio volume, arah harga, dan posisi penutupan. <b>Ini bukan bukti akumulasi atau distribusi oleh bandar.</b> Data broker dan asing tidak tersedia di sini.</li>
+      <li><b>Saham sepi menipu:</b> rasio besar dari basis volume yang kecil tidak berarti apa-apa, jadi biarkan filter nilai transaksi menyala.</li>
+      <li><b>Hari berjalan masih parsial,</b> jadi rasionya rendah di pagi hari. Data Yahoo tertunda sekitar 15 menit dan bisa berbeda dari angka resmi bursa.</li>
+      <li>Pola-pola ini <b>belum diuji backtest</b>. Spike volume bukan jaminan harga akan naik. Bukan saran investasi.</li>
+    </ul>
+  </div>
+</main>
+<script>
+  const API_URL=(()=>{try{return(localStorage.getItem('ruang-bursa-api-v1')||'').trim().replace(/\/+$/,'')}catch(e){return''}})();
+  const $=id=>document.getElementById(id);
+  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const fmt=n=>new Intl.NumberFormat('id-ID').format(Math.round(n));
+  const dec=(x,d=1)=>x==null?'—':x.toFixed(d).replace('.',',');
+  const pct=x=>x==null?'—':(x>=0?'+':'')+dec(x)+'%';
+  const lotStr=v=>{const l=v/100;return l>=1e6?dec(l/1e6,2)+' jt':l>=1e3?dec(l/1e3,0)+' rb':fmt(l)};
+  const rp=v=>v>=1e12?'Rp '+dec(v/1e12)+' T':v>=1e9?'Rp '+dec(v/1e9)+' mlr':'Rp '+Math.round(v/1e6)+' jt';
+  const dstr=t=>new Date(t*1000).toLocaleDateString('id-ID',{weekday:'short',day:'numeric',month:'short'});
+  const SKEY='ruang-bursa-vol-v1',CHUNK=25;
+  let UNI=[],rows=[],seq=0;const open=new Set();
+
+  function bars(days){
+    const W=92,H=28,bw=13,gap=6;let g=`<line x1="0" x2="${W}" y1="${H-H/4}" y2="${H-H/4}" stroke="#cfd6da" stroke-dasharray="2 2"/>`;
+    days.forEach((d,i)=>{const h=Math.max(2,Math.min(d.vx||0,4)/4*H),c=d.chg>=0?'#1b8a5a':'#c0484d';
+      g+=`<rect x="${i*(bw+gap)}" y="${H-h}" width="${bw}" height="${h}" rx="2" fill="${c}"><title>${esc(dstr(d.t))} · ${esc(lotStr(d.v))} lot · ${dec(d.vx,2)}× · ${pct(d.chg)}</title></rect>`});
+    return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Rasio volume 5 hari terakhir">${g}</svg>`;
+  }
+  const avg5=s=>{const v=(s.days||[]).map(d=>d.vx).filter(x=>x!=null);return v.length?v.reduce((a,b)=>a+b,0)/v.length:null};
+  const val=s=>s.price*(s.v||0);
+
+  function view(){
+    const q=$('q').value.trim().toUpperCase(),pat=$('pat').value,vmin=+$('vmin').value,liq=+$('liq').value,pmin=+$('pmin').value,sort=$('sort').value;
+    let r=rows.filter(s=>s.price>=pmin&&val(s)>=liq&&(vmin===0||(s.vx!=null&&s.vx>=vmin))&&(pat==='all'||s.pattern===pat)&&(!q||s.code.includes(q)||String(s.name).toUpperCase().includes(q)));
+    const key={vx:s=>s.vx,v5:avg5,val:val,chgd:s=>s.change,chga:s=>s.change}[sort],dir=sort==='chga'?1:-1;
+    r.sort((a,b)=>{const x=key(a),y=key(b);if(x==null||y==null)return (x==null)-(y==null);return (x-y)*dir});
+    return r;
+  }
+  function render(){
+    const r=view(),shown=r.slice(0,200);
+    $('body').innerHTML=shown.length?shown.map(s=>{
+      const ch=s.change>=0?'pos':'neg';
+      let h=`<tr class="r" data-code="${s.code}"><td><b>${s.code}</b><div class="sm">${esc(s.name)}${s.board==='Pemantauan Khusus'?' ⚠':''}</div></td>`+
+        `<td>${fmt(s.price)}</td><td class="${ch}"><b>${pct(s.change)}</b></td>`+
+        `<td>${lotStr(s.v)} lot<div class="sm">${rp(val(s))}</div></td>`+
+        `<td><b>${dec(s.vx,2)}×</b><div class="sm">rata² ${lotStr(s.v20)} lot</div></td>`+
+        `<td class="l">${bars(s.days||[])}</td>`+
+        `<td class="l"><span class="chip ${esc(s.tone)}">${esc(s.pattern)}</span><div class="sm" style="max-width:240px;white-space:normal">${esc(s.note)}</div></td></tr>`;
+      if(open.has(s.code))h+=`<tr class="det"><td colspan="7"><b>${s.code}: 5 hari terakhir</b><div class="dt"><b>Hari</b><b>Volume (lot)</b><b>Rasio</b><b>Perubahan</b>`+
+        (s.days||[]).map(d=>`<span>${esc(dstr(d.t))}</span><span>${lotStr(d.v)}</span><span>${dec(d.vx,2)}×</span><span class="${d.chg>=0?'pos':'neg'}">${pct(d.chg)}</span>`).join('')+`</div></td></tr>`;
+      return h}).join(''):`<tr><td colspan="7" class="mut" style="text-align:left;padding:18px">${rows.length?'Tidak ada saham yang cocok dengan filter.':'Belum ada data.'}</td></tr>`;
+    $('count').textContent=rows.length?`Menampilkan ${shown.length} dari ${r.length} hasil · ${rows.length} saham dimuat`:'';
+  }
+  $('body').addEventListener('click',e=>{const tr=e.target.closest('tr.r');if(!tr)return;const c=tr.dataset.code;open.has(c)?open.delete(c):open.add(c);render()});
+
+  function save(){try{localStorage.setItem(SKEY,JSON.stringify(Object.fromEntries(['uni','pat','vmin','liq','pmin','sort'].map(id=>[id,$(id).value]))))}catch(e){}}
+  function restore(){try{const f=JSON.parse(localStorage.getItem(SKEY)||'null');if(f)Object.entries(f).forEach(([id,v])=>{const el=$(id);if(el&&[...el.options].some(o=>o.value===String(v)))el.value=String(v)})}catch(e){}}
+
+  async function load(){
+    const mine=++seq,sel=$('uni').value;
+    const list=UNI.filter(s=>sel==='all'||(sel.startsWith('board:')&&s.board===sel.slice(6))||(sel.startsWith('sector:')&&s.sector===sel.slice(7)));
+    const info=Object.fromEntries(list.map(s=>[s.code,s]));rows=[];render();
+    const chunks=[];for(let i=0;i<list.length;i+=CHUNK)chunks.push(list.slice(i,i+CHUNK).map(s=>s.code));
+    let idx=0,done=0,failed=0,errors=0;$('load').disabled=true;$('status').textContent='Memuat 0%…';
+    const run=async()=>{while(idx<chunks.length&&mine===seq){const ch=chunks[idx++];
+      try{const r=await fetch(`${API_URL}?mode=volume&symbols=${ch.join(',')}`);if(!r.ok)throw new Error('HTTP '+r.status);const j=await r.json();if(mine!==seq)return;
+        (j.data||[]).forEach(d=>rows.push({...info[d.code],...d,name:info[d.code]?.name||d.name}));failed+=(j.failed||[]).length}
+      catch(e){failed+=ch.length;errors++}
+      done++;$('status').textContent=`Memuat ${Math.round(done/chunks.length*100)}%…`;render()}};
+    await Promise.all([run(),run(),run()]);
+    if(mine!==seq)return;
+    $('load').disabled=false;
+    $('status').textContent=errors===chunks.length?'Gagal terhubung ke Worker. Periksa koneksi di halaman utama.':`Selesai: ${rows.length} saham${failed?`, ${failed} gagal dimuat (kode tidak dikenal Yahoo atau dibatasi)`:''}.`;
+    render();
+  }
+
+  async function init(){
+    if(!API_URL){$('notice').style.display='block';$('notice').innerHTML='<b>Worker belum terhubung.</b> Buka <a href="index.html">halaman utama</a> dan tekan <b>Hubungkan Worker</b>, lalu kembali ke sini di browser yang sama.';$('load').disabled=true;return}
+    try{
+      const t=await(await fetch('saham.txt',{cache:'no-store'})).text();
+      UNI=t.split(/\r?\n/).map(l=>l.split('|')).filter(p=>/^[A-Z]{4}$/.test((p[0]||'').trim())).map(p=>({code:p[0].trim(),name:(p[1]||p[0]).trim(),board:(p[2]||'').trim(),sector:(p[3]||'Lainnya').trim()}));
+    }catch(e){}
+    if(!UNI.length){$('status').textContent='Gagal membaca saham.txt. Pastikan file ada di folder yang sama.';return}
+    const sectors=[...new Set(UNI.map(s=>s.sector))].filter(s=>s!=='Lainnya').sort(),cnt=f=>UNI.filter(f).length;
+    $('uni').innerHTML=`<option value="board:Utama">Papan Utama (${cnt(s=>s.board==='Utama')})</option>`+
+      sectors.map(x=>`<option value="sector:${esc(x)}">Sektor ${esc(x)} (${cnt(s=>s.sector===x)})</option>`).join('')+`<option value="all">Semua saham (${UNI.length}, lebih lama)</option>`;
+    restore();
+    ['q','pat','vmin','liq','pmin','sort'].forEach(id=>$(id).addEventListener(id==='q'?'input':'change',()=>{save();render()}));
+    $('uni').addEventListener('change',()=>{save();load()});
+    $('load').onclick=load;
+    load();
+  }
+  init();
+</script>
+</body>
+</html>
