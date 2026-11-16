@@ -302,6 +302,7 @@
       v=`Dari <b>${sb.n}</b> sinyal BUY, <b>${f1(sb.win,0)}%</b> berakhir untung.<br><b>BUY rata-rata ${f1(sb.avg)}% per sinyal (setelah biaya) vs ${f1(sa.avg)}% untuk semua sinyal.</b> Selisih ${d>=0?'+':''}${f1(d)} poin. `+
         (sb.n<100?'Sampel masih kecil (<100), anggap sebagai petunjuk awal saja. ':'')+
         (d>0.15&&sb.avg>0?'Ada indikasi keunggulan pada data ini, tetapi belum teruji di luar sampel.':d>0.15?'Lebih baik dari pembanding, tetapi masih rugi setelah biaya.':'Belum terlihat keunggulan dibanding sinyal acak pada data ini.');}
+    if(sb&&fb==='all'&&fr==='all'){try{const k='ruang-bursa-bt-last-v1',o=JSON.parse(localStorage.getItem(k)||'{}');o[$('mode').value]={n:sb.n,avg:sb.avg,base:sa.avg,thr,t:Date.now()};localStorage.setItem(k,JSON.stringify(o))}catch(e){}}
     $('verdict').innerHTML=v;
     $('half').textContent=buy.length?halves(buy,'net'):'';
     $('t2title').textContent='BUY menurut kondisi pasar dan RS (rata² bersih per sinyal)';
